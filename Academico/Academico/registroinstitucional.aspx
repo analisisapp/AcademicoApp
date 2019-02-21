@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="registroinstitucional.aspx.cs" Inherits="Academico.registroinstitucional" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -44,6 +46,7 @@
 </head>
 <body class="nav-md">
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="scm_principal" runat="server"></asp:ScriptManager>
         <div class="container body">
             <div class="main_container">
                 <div class="col-md-3 left_col">
@@ -69,22 +72,7 @@
                         <br />
                     </div>
 
-                    <%--                 <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                <div class="menu_section active">
-                    <h3>General</h3>
-                    <ul class="nav side-menu" style="">
-                        <li><a><i class="fa fa-home"></i>Login<span class="fa fa-chevron-down"></span></a>
-                            <ul class="nav child_menu">
-                                <li><a href="index.html">Dashboard</a></li>
-                                <li><a href="index2.html">Dashboard2</a></li>
-                                <li><a href="index3.html">Dashboard3</a></li>
-                            </ul>
-                        </li>
-                </div>
-
-            </div>
-                    --%>
+                  
                 </div>
 
                 <div class="right_col" role="main" style="min-height: 7010px;">
@@ -171,21 +159,6 @@
                                         <div class="form-horizontal form-label-left input_mask" >
                                         <div class="x_title">
                                             <h2><span><i class="fa fa-user-plus"></i></span>Cuenta de Usuario<small></small>Datos de Tu Cuenta de Acceso</h2>
-                                            <%--<ul class="nav navbar-right panel_toolbox">
-                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Herramientas</a>
-                                        </li>
-                                        <li><a href="#"><span><i class="fa fa-user"></i></span>  Login</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                </li>
-                            </ul>--%>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="x_content">
@@ -201,6 +174,12 @@
                                                  <div class="col-md-9 col-sm-9 col-xs-12">
                                                 <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" placeholder="Password" TextMode="Password" required="required"></asp:TextBox>
                                                 <span class="fa fa-eye-slash form-control-feedback right" aria-hidden="true"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Subir Foto:</label>
+                                                <div class="col-md-9 col-sm-9 col-xs-12"> 
+                                                    <ajaxToolkit:AsyncFileUpload ID="file_Foto" runat="server" CssClass="file-name" /> 
                                                 </div>
                                             </div>
                                         </div>
