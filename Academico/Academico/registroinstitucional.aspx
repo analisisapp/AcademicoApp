@@ -192,14 +192,14 @@
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre de Usuario:</label>
                                                  <div class="col-md-9 col-sm-9 col-xs-12">
-                                                <asp:TextBox ID="txtNombreUsuario" runat="server" CssClass="form-control" placeholder="Nombre de Usuario"></asp:TextBox>
+                                                <asp:TextBox ID="txtNombreUsuario" runat="server" CssClass="form-control" placeholder="Nombre de Usuario" required="required"></asp:TextBox>
                                                 <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Password:</label>
                                                  <div class="col-md-9 col-sm-9 col-xs-12">
-                                                <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" placeholder="Password" TextMode="Password"></asp:TextBox>
+                                                <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" placeholder="Password" TextMode="Password" required="required"></asp:TextBox>
                                                 <span class="fa fa-eye-slash form-control-feedback right" aria-hidden="true"></span>
                                                 </div>
                                             </div>
