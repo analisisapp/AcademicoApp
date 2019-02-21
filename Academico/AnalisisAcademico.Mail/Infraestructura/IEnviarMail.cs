@@ -9,5 +9,6 @@ namespace AnalisisAcademico.Mail.Infraestructura
     public interface IEnviarMail
     {
         bool enviarCorreo(string to, string message);
+       // bool enviarMensaje(string correo, string message);
     }
 }

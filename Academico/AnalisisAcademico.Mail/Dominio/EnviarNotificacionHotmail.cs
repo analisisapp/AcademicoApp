@@ -37,5 +37,38 @@ namespace AnalisisAcademico.Mail.Dominio
                 return false;
             }
         }
+
+        public bool enviarMensaje(string correoUsuario, string message)
+        {
+            try
+            {
+                string correoAdmin = "plataforma.developer.3@gmail.com";
+                string passwordAdmin = "SistemasplataformaUttt";
+
+                using (MailMessage mm = new MailMessage(correoUsuario, correoAdmin))
+                {
+                    mm.Subject = "Aviso";
+                    mm.Body = message;
+                    mm.IsBodyHtml = false;
+                    SmtpClient smpt = new SmtpClient();
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.EnableSsl = true;
+                    NetworkCredential networkCred = new NetworkCredential(correoAdmin, passwordAdmin);
+                    smpt.UseDefaultCredentials = false;
+                    smtp.Credentials = networkCred;
+                    smpt.Port = 587;
+                    smpt.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smpt.Send(mm);
+                }
+                return true;
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                return false;
+            }
+        }
     }
 }
