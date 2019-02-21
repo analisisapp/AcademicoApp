@@ -481,6 +481,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnalisisAcademico.Mail\AnalisisAcademico.Mail.csproj">
+      <Project>{5b10b10f-6c42-491f-9abd-7249b2f5f681}</Project>
+      <Name>AnalisisAcademico.Mail</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
