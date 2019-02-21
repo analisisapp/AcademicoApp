@@ -43,7 +43,7 @@
                         <div class="separator">
                             <p class="change_link">
                                 Nuevo en el Sitio?
-                  <a href="#signup" class="to_register">Crea una Cuenta </a>
+                  <a href="registroinstitucional.aspx" class="to_register">Crea una Cuenta </a>
                             </p>
 
                             <div class="clearfix"></div>

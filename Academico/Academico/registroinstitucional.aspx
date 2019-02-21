@@ -43,32 +43,33 @@
     <script src="Scripts/custom.min.js"></script>
 </head>
 <body class="nav-md">
-    <div class="container body">
-        <div class="main_container">
-            <div class="col-md-3 left_col">
-                <div class="left_col scroll-view">
-                    <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i><span>Análisis Acádemico!</span></a>
+    <form id="form1" runat="server">
+        <div class="container body">
+            <div class="main_container">
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                        <div class="navbar nav_title" style="border: 0;">
+                            <a href="index.html" class="site_title"><i class="fa fa-graduation-cap"></i><span>Análisis Acádemico!</span></a>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- menu profile quick info -->
+                        <div class="profile clearfix">
+                            <div class="profile_pic">
+                                <img src="Imagenes/anonimo.jpg" alt="..." class="img-circle profile_img" />
+                            </div>
+                            <div class="profile_info">
+                                <span>Bienvenido,</span>
+                                <h2>Registrate</h2>
+                            </div>
+                        </div>
+                        <!-- /menu profile quick info -->
+
+                        <br />
                     </div>
 
-                    <div class="clearfix"></div>
-
-                    <!-- menu profile quick info -->
-                    <div class="profile clearfix">
-                        <div class="profile_pic">
-                            <img src="Imagenes/anonimo.jpg" alt="..." class="img-circle profile_img" />
-                        </div>
-                        <div class="profile_info">
-                            <span>Bienvenido,</span>
-                            <h2>Registrate</h2>
-                        </div>
-                    </div>
-                    <!-- /menu profile quick info -->
-
-                    <br />
-                </div>
-
-<%--                 <!-- sidebar menu -->
+                    <%--                 <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                 <div class="menu_section active">
                     <h3>General</h3>
@@ -83,99 +84,259 @@
                 </div>
 
             </div>
---%>
-
-            </div>
-           
-            <div class="right_col" role="main" style="min-height: 7010px;">
-            <div class="col-md-6 col-xs-12">
-                <div class="x_panel">
-                    <div class="x_title">
-                        <h2>Registro<small>Datos personales del Alumno</small></h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Herramientas</a>
-                                    </li>
-                                    <li><a href="#">Login</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                        <br />
-                        <form class="form-horizontal form-label-left input_mask" id="form1" runat="server">
-
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <asp:TextBox ID="txtMatricula" runat="server" CssClass="form-control has-feedback-left" placeholder="No. de Matricula"></asp:TextBox>
-                                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                            </div>
-
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control" id="inputSuccess3" placeholder="Last Name">
-                                <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                            </div>
-
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Email">
-                                <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
-                            </div>
-
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control" id="inputSuccess5" placeholder="Phone">
-                                <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Default Input</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" placeholder="Default Input">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Disabled Input </label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" disabled="disabled" placeholder="Disabled Input">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Read-Only Input</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" readonly="readonly" placeholder="Read-Only Input">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">
-                                    Date Of Birth <span class="required">*</span>
-                                </label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
-                                </div>
-                            </div>
-                            <div class="ln_solid"></div>
-                            <div class="form-group">
-                                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                    <button type="button" class="btn btn-primary">Cancel</button>
-                                    <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
+                    --%>
                 </div>
 
+                <div class="right_col" role="main" style="min-height: 7010px;">
+                    <div class="col-md-6 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Registro<small>Datos personales del Alumno</small></h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Herramientas</a>
+                                            </li>
+                                            <li><a href="#">Login</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <br />
+                                <div class="form-horizontal form-label-left input_mask">
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <asp:TextBox ID="txtMatricula" runat="server" CssClass="form-control has-feedback-left" placeholder="No. de Matricula" required="required" TextMode="Number"></asp:TextBox>
+                                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <asp:TextBox ID="txtSemestre" runat="server" CssClass="form-control" placeholder="Semestre Actual" TextMode="Number" required="required"></asp:TextBox>
+                                        <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control has-feedback-left" placeholder="Nombre Completo" required="required" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+"></asp:TextBox>
+                                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <asp:TextBox ID="txtApellidoPaterno" runat="server" CssClass="form-control" placeholder="Apellido Paterno" required="required" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+"></asp:TextBox>
+                                        <span class="fa  fa-mouse-pointer form-control-feedback right" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <asp:TextBox ID="txtApellidoMaterno" runat="server" CssClass="form-control" placeholder="Apellido Materno" required="required" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+"></asp:TextBox>
+                                        <span class="fa  fa-mouse-pointer form-control-feedback right" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="email" TextMode="Email" required="required"></asp:TextBox>
+                                        <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Telefono Celular:</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <asp:TextBox ID="txtTelefonoCelular" runat="server" CssClass="form-control" placeholder="Telefono Celular" TextMode="Phone"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Plan Educativo:</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <asp:DropDownList ID="ddlCarrera" runat="server" placeholder="Carrera" CssClass="form-control" required="required">
+                                                <asp:ListItem>
+                                            Seleccionar
+                                                </asp:ListItem>
+                                            </asp:DropDownList>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Plan de Estudios:</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <asp:TextBox ID="txtPlanEstudios" runat="server" placeholder="Plan de Estudios" CssClass="form-control" required="required" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+"></asp:TextBox>
+                                            <span class="fa  fa-folder-o form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="form-horizontal form-label-left input_mask" >
+                                        <div class="x_title">
+                                            <h2><span><i class="fa fa-user-plus"></i></span>Cuenta de Usuario<small></small>Datos de Tu Cuenta de Acceso</h2>
+                                            <%--<ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Herramientas</a>
+                                        </li>
+                                        <li><a href="#"><span><i class="fa fa-user"></i></span>  Login</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>--%>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre de Usuario:</label>
+                                                 <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <asp:TextBox ID="txtNombreUsuario" runat="server" CssClass="form-control" placeholder="Nombre de Usuario"></asp:TextBox>
+                                                <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Password:</label>
+                                                 <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" placeholder="Password" TextMode="Password"></asp:TextBox>
+                                                <span class="fa fa-eye-slash form-control-feedback right" aria-hidden="true"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-5 col-sm-5 col-xs-12 col-md-offset-7">
+                                            <button class="btn btn-primary" type="reset">Regresar</button>
+                                            <button type="submit" class="btn btn-success">Submit</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Creditos<small>Cursados hasta el momento</small></h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Herramientas</a>
+                                            </li>
+                                            <li><a href="#"><span><i class="fa fa-user"></i></span>Login</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <br />
+                                <div class="form-horizontal form-label-left input_mask" id="form2">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Creditos Aprobados:</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <asp:TextBox ID="txtCreditosAprobados" runat="server" placeholder="Creditos Aprobados" TextMode="Number" CssClass="form-control"></asp:TextBox>
+                                            <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Creditos Totales:</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <asp:TextBox ID="txtCreditosTotales" runat="server" placeholder="Creditos Totales" CssClass="form-control" required="required" TextMode="Number">
+                                            </asp:TextBox>
+                                            <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Creditos Reprobados:</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <asp:TextBox ID="txtCreditosReprobados" runat="server" placeholder="Plan de Estudios" CssClass="form-control" required="required" TextMode="Number"></asp:TextBox>
+                                            <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Asignaturas<small>Cursados hasta el momento</small></h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Herramientas</a>
+                                            </li>
+                                            <li><a href="#"><span><i class="fa fa-user"></i></span>Login</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <br />
+                                <div class="form-horizontal form-label-left input_mask">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Asignaturas Totales:</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <asp:TextBox ID="txtAsignaturasTotales" runat="server" placeholder="Asignaturas Totales" TextMode="Number" CssClass="form-control"></asp:TextBox>
+                                            <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Asignaturas Aprobadas:</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <asp:TextBox ID="txtAsignaturasAprobadas" runat="server" placeholder="Asignaturas Aprobadas" CssClass="form-control" required="required" TextMode="Number">
+                                            </asp:TextBox>
+                                            <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Asignaturas Cursadas:</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <asp:TextBox ID="txtAsignaturasCursadas" runat="server" placeholder="Asignaturas Cursadas" CssClass="form-control" required="required" TextMode="Number"></asp:TextBox>
+                                            <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Asignaturas Reprobadas:</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <asp:TextBox ID="txtAsignaturasReprobadas" runat="server" placeholder="Asignaturas Reprobadas" CssClass="form-control" required="required" TextMode="Number"></asp:TextBox>
+                                            <span class="fa fa-exclamation form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Asignaturas en Repetición:</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <asp:TextBox ID="txtAsignaturasRepetición" runat="server" placeholder="Asignaturas en Repetición" CssClass="form-control" required="required" TextMode="Number"></asp:TextBox>
+                                            <span class="fa fa-exclamation form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
         </div>
-        </div>
-        
-    </div>
+    </form>
 </body>
 </html>
