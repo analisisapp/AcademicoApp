@@ -102,7 +102,7 @@
                                         <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control has-feedback-left" placeholder="tu correo electrónico" required="required" TextMode="Email"></asp:TextBox>
                                         <span class="fa  fa-envelope form-control-feedback left" aria-hidden="true"></span>
                                     </div>
-                                    <asp:Button ID="BtnBuscar" runat="server" Text="Buscar" CssClass="btn btn-success" />
+                                    <asp:Button ID="BtnBuscar" runat="server" Text="Buscar" CssClass="btn btn-success" OnClick="BtnBuscar_Click" />
                                     
                                 </div>
                                
