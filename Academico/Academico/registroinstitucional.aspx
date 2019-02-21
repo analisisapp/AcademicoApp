@@ -179,7 +179,8 @@
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Subir Foto:</label>
                                                 <div class="col-md-9 col-sm-9 col-xs-12"> 
-                                                    <ajaxToolkit:AsyncFileUpload ID="file_Foto" runat="server" CssClass="file-name" /> 
+                                                    <!-- accept=".pdf"--><!--accept="application/pdf,image/jpg"  -->
+                                                    <ajaxToolkit:AsyncFileUpload ID="file_Foto" runat="server" CssClass="file-name" required="required" accept="image/jpg" /> 
                                                 </div>
                                             </div>
                                         </div>

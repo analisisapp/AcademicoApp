@@ -198,6 +198,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\starrr.css" />
     <Content Include="Content\switchery.css" />
+    <Content Include="Cuentas\inicio_recuperacion_password.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -409,6 +410,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cuentas\inicio_recuperacion_password.aspx.cs">
+      <DependentUpon>inicio_recuperacion_password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cuentas\inicio_recuperacion_password.aspx.designer.cs">
+      <DependentUpon>inicio_recuperacion_password.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

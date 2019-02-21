@@ -35,7 +35,7 @@
                         </div>
                         <div>
                             <asp:Button ID="BtnLogin" runat="server" Text="Log in" CssClass="btn btn-default submit" />
-                            <a class="reset_pass" href="#">Olvidaste tu Password?</a>
+                            <a class="reset_pass" href="Cuentas/inicio_recuperacion_password.aspx">Olvidaste tu Password?</a>
                         </div>
 
                         <div class="clearfix"></div>
