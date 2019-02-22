@@ -25,17 +25,41 @@
     <link href="Content/switchery.css" rel="stylesheet" />
     <link href="Content/starrr.css" rel="stylesheet" />
     
-    <link href="Content/custom.min.css" rel="stylesheet" />
-    <script src="Scripts/jquery.min.js"></script>
     
-    <script src="Scripts/custom.js"></script>
+
+    <%--<link href="Content/pnotify.buttons.css" rel="stylesheet" />
+    <link href="Content/pnotify.css" rel="stylesheet" />
+    <link href="Content/pnotify.nonblock.css" rel="stylesheet" />--%>
+
+    <script src="Scripts/jquery.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/fastclick.js"></script>
     <script src="Scripts/nprogress.js"></script>
+    <script src="Scripts/Chart.min.js"></script>
+    <script src="Scripts/gauge.min.js"></script>
     <script src="Scripts/bootstrap-progressbar.min.js"></script>
     <script src="Scripts/icheck.min.js"></script>
+
+    <%--<script src="Scripts/pnotify.buttons.js"></script>
+    <script src="Scripts/pnotify.js"></script>
+    <script src="Scripts/pnotify.nonblock.js"></script>--%>
+
+
+    <script src="Scripts/skycons.js"></script>
+    <script src="Scripts/date.js"></script>
+    <script src="Scripts/jquery.vmap.min.js"></script>
+    <script src="Scripts/jquery.vmap.world.js"></script>
+    <script src="Scripts/jquery.vmap.sampledata.js"></script>
+    <script src="Scripts/moment.min.js"></script>
+    
+    
     <script src="Scripts/moment.js"></script>
     <script src="Scripts/daterangepicker.js"></script>
+    <%--<script src="Scripts/custom.js"></script>--%>
+    
+    <%--<script src="Scripts/jquery-3.3.1.js"></script>--%>
+    
+    
     <script src="Scripts/bootstrap-wysiwyg.min.js"></script>
     <script src="Scripts/jquery.hotkeys.js"></script>
     <script src="Scripts/prettify.js"></script>
@@ -46,7 +70,7 @@
     <script src="Scripts/autosize.min.js"></script>
     <script src="Scripts/jquery.autocomplete.min.js"></script>
     <script src="Scripts/starrr.js"></script>
-    <script src="Scripts/custom.min.js"></script>
+    <script src="Scripts/custom.js"></script>
     <title><%: Page.Title %> Análisis Académico!|</title>
 
     <asp:PlaceHolder runat="server">
