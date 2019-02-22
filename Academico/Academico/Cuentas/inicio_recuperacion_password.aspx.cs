@@ -20,8 +20,9 @@ namespace Academico.Cuentas
         protected void BtnBuscar_Click(object sender, EventArgs e)
         {
             enviarMail = new EnviarNotificacionGmail();
-            enviarMail.enviarCorreo("erik.guerrero@uttt.edu.mx", "Estamos Enviando tu password Nuevo");
-          // enviarMail.enviarMensaje("erik.guerrero@uttt.edu.mx", "Hola, Estamos Enviando tu password Nuevo");
+            string mail = this.txtEmail.Text;
+            enviarMail.enviarCorreo(mail, "Estamos Enviando tu password Nuevo");
+          
         }
     }
 }
