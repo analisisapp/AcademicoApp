@@ -176,6 +176,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Alumno\perfil.aspx" />
+    <Content Include="Alumno\profile.aspx" />
     <Content Include="build\css\custom.css" />
     <Content Include="build\css\custom.min.css" />
     <Content Include="build\images\back_disabled.png" />
@@ -3922,6 +3923,13 @@
     </Compile>
     <Compile Include="Alumno\perfil.aspx.designer.cs">
       <DependentUpon>perfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Alumno\profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alumno\profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
