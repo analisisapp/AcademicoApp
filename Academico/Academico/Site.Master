@@ -25,48 +25,13 @@
     <link href="Content/switchery.css" rel="stylesheet" />
     <link href="Content/starrr.css" rel="stylesheet" />
     
-    
-
-    <%--<link href="Content/pnotify.buttons.css" rel="stylesheet" />
-    <link href="Content/pnotify.css" rel="stylesheet" />
-    <link href="Content/pnotify.nonblock.css" rel="stylesheet" />--%>
-
-    <%--<script src="Scripts/jquery.min.js"></script>--%>
-    <%--<script src="Scripts/bootstrap.min.js"></script>--%>
-    <%--<script src="Scripts/fastclick.js"></script>--%>
-    <%--<script src="Scripts/nprogress.js"></script>
-    <script src="Scripts/Chart.min.js"></script>
-    <script src="Scripts/gauge.min.js"></script>
-    <script src="Scripts/bootstrap-progressbar.min.js"></script>
-    <script src="Scripts/icheck.min.js"></script>--%>
-
-    <%--<script src="Scripts/pnotify.buttons.js"></script>
-    <script src="Scripts/pnotify.js"></script>
-    <script src="Scripts/pnotify.nonblock.js"></script>--%>
-
-
-    <%--<script src="Scripts/skycons.js"></script>
-    <script src="Scripts/date.js"></script>
-    <script src="Scripts/jquery.vmap.min.js"></script>
-    <script src="Scripts/jquery.vmap.world.js"></script>
-    <script src="Scripts/jquery.vmap.sampledata.js"></script>
-    <script src="Scripts/moment.min.js"></script>
-    
-    
-    <script src="Scripts/moment.js"></script>
-    <script src="Scripts/daterangepicker.js"></script>--%>
-    <%--<script src="Scripts/custom.js"></script>--%>
-    
-   
-    
-    
-  
-    <%--<script src="Scripts/custom.js"></script>--%>
     <title><%: Page.Title %> Análisis Académico!|</title>
 
     <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
+        <%--<%: Scripts.Render("~/bundles/modernizr") %>--%>
     </asp:PlaceHolder>
+    <asp:ContentPlaceHolder ID="HeadPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
     <%--<webopt:BundleReference runat="server" Path="~/Content/css" />--%>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
@@ -100,7 +65,7 @@
                 <div class="col-md-3 left_col">
                     <div class="left_col scroll-view">
                         <div class="navbar nav_title" style="border: 0;">
-                            <a href="index.html" class="site_title"><i class="fa fa-paw"></i><span>Análisis Académico!</span></a>
+                            <a href="index.html" class="site_title"><i class="fa fa-graduation-cap"></i><span>Análisis Académico!</span></a>
                         </div>
 
                         <div class="clearfix"></div>
@@ -124,11 +89,11 @@
                             <div class="menu_section active">
                                 <h3>General</h3>
                                 <ul class="nav side-menu" style="">
-                                    <li class="active"><a><i class="fa fa-home"></i>Home <span class="fa fa-chevron-down"></span></a>
+                                    <li class="active"><a><i class="fa fa-home"></i>Bienvenido<span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="display: block;">
-                                            <li class="current-page"><a href="index.html">Dashboard</a></li>
-                                            <li><a href="index2.html">Dashboard2</a></li>
-                                            <li><a href="index3.html">Dashboard3</a></li>
+                                            <li class="current-page"><a href="Alumno/perfil.aspx">Tu Perfil</a></li>
+                                            <li><a href="index2.html">Especiales Aprobados</a></li>
+                                            <li><a href="index3.html">Especiales No Aprobados</a></li>
                                         </ul>
                                     </li>
                                     <li><a><i class="fa fa-edit"></i>Forms <span class="fa fa-chevron-down"></span></a>
@@ -341,13 +306,13 @@
                 <!--termina el top nav-->
                 <!--page content -->
                 <div class="right_col" role="main" style="min-height: 3885px;">
-                    <div class="row tile_count">
+                    <%--<div class="row tile_count">
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-user"></i>Total Usuarios</span>
                             <div class="count">2500</div>
                             <span class="count_bottom"><i class="green">4% </i>Desde la Ultima Semana</span>
                         </div>
-                    </div>
+                    </div>--%>
                     <!--termina top tiles -->
                     <div class="row">
                         <asp:ContentPlaceHolder ID="MainContent" runat="server">
@@ -403,13 +368,21 @@
                 </div>
             </div>
         </div>--%>
-    <%--<div class="container body-content">
-            
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
-            </footer>
-        </div>--%>
-    <%-- </form>--%>
+   
+     
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- bootstrap-wysiwyg -->
+    <script src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+    <script src="../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+    <script src="../vendors/google-code-prettify/src/prettify.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
 </body>
 </html>
