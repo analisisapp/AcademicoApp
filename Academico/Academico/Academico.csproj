@@ -530,9 +530,6 @@
     <Content Include="vendors\bootstrap\dist\css\bootstrap.css" />
     <Content Include="vendors\bootstrap\dist\css\bootstrap.min.css" />
     <Content Include="vendors\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="vendors\bootstrap\dist\js\bootstrap.js" />
-    <Content Include="vendors\bootstrap\dist\js\bootstrap.min.js" />
-    <Content Include="vendors\bootstrap\dist\js\npm.js" />
     <Content Include="vendors\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="vendors\bootstrap\Gruntfile.js" />
     <Content Include="vendors\bootstrap\grunt\bs-commonjs-generator.js" />
@@ -4021,6 +4018,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="vendors\bootstrap\dist\js\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
