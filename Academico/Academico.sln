@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academico", "Academico\Acad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalisisAcademico.Mail", "AnalisisAcademico.Mail\AnalisisAcademico.Mail.csproj", "{5B10B10F-6C42-491F-9ABD-7249B2F5F681}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalisisAcademico.Web", "AnalisisAcademico.Web\AnalisisAcademico.Web.csproj", "{8AD4D9DA-B057-4F70-8F6B-A3B5781142D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5B10B10F-6C42-491F-9ABD-7249B2F5F681}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B10B10F-6C42-491F-9ABD-7249B2F5F681}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B10B10F-6C42-491F-9ABD-7249B2F5F681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AD4D9DA-B057-4F70-8F6B-A3B5781142D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AD4D9DA-B057-4F70-8F6B-A3B5781142D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AD4D9DA-B057-4F70-8F6B-A3B5781142D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AD4D9DA-B057-4F70-8F6B-A3B5781142D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
