@@ -1,0 +1,1644 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AnalisisAcademicoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AlumnoEstatusAcademico">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idAlumno" Type="int" Nullable="false" />
+          <Property Name="idEstatusAcademico" Type="int" Nullable="false" />
+          <Property Name="registroBaja" Type="varchar" MaxLength="100" />
+          <Property Name="tiempoBaja" Type="varchar" MaxLength="350" />
+          <Property Name="fecha" Type="date" />
+        </EntityType>
+        <EntityType Name="Asignaturas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="asignaturasTotales" Type="int" />
+          <Property Name="asignaturasAprobadas" Type="int" />
+          <Property Name="asignaturasCursar" Type="int" />
+          <Property Name="asignaturasReprobadas" Type="int" />
+          <Property Name="asignaturasRepeticion" Type="int" />
+          <Property Name="idAlumno" Type="int" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="activacion" Type="bit" />
+        </EntityType>
+        <EntityType Name="CatAsuntoSolicitud">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strValor" Type="varchar" MaxLength="150" />
+          <Property Name="strDescripcion" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="CatCarrera">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strValor" Type="varchar" MaxLength="350" />
+          <Property Name="strDescripcion" Type="varchar" MaxLength="450" />
+          <Property Name="strUrlImg" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="catCarreraAsignaturasCursadas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AsignaturasTotales" Type="varchar" MaxLength="20" />
+          <Property Name="AsignaturasAprobadas" Type="varchar" MaxLength="20" />
+          <Property Name="AsignaturasReprobadas" Type="varchar" MaxLength="30" />
+          <Property Name="AsignaturasPorCursar" Type="varchar" MaxLength="30" />
+          <Property Name="AsignaturasRepeticion" Type="varchar" MaxLength="30" />
+          <Property Name="PorcentajeAvance" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="catCarreraCreditos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="creditosTotales" Type="int" />
+          <Property Name="creditosReprobados" Type="int" />
+          <Property Name="creditosPorCursar" Type="int" />
+          <Property Name="PorcentajeAvance" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CatStatus">
+          <Key>
+            <PropertyRef Name="idStatus" />
+          </Key>
+          <Property Name="idStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strNombre" Type="varchar" MaxLength="50" />
+          <Property Name="strObservaciones" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Creditos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="creditosTotales" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="creditosAprobados" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="creditosPorCursar" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="idAlumno" Type="int" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="activacion" Type="bit" />
+        </EntityType>
+        <EntityType Name="Documento">
+          <Key>
+            <PropertyRef Name="idDocumento" />
+          </Key>
+          <Property Name="idDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strNombre" Type="varchar" MaxLength="250" />
+          <Property Name="strDescripcion" Type="varchar" MaxLength="450" />
+          <Property Name="urlDocumento" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Documento_Solicitud">
+          <Key>
+            <PropertyRef Name="idSolicitud" />
+            <PropertyRef Name="idDocumento" />
+          </Key>
+          <Property Name="idSolicitud" Type="int" Nullable="false" />
+          <Property Name="idDocumento" Type="int" Nullable="false" />
+          <Property Name="fechaAsignacion" Type="date" />
+        </EntityType>
+        <EntityType Name="EspecialAsignaturas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="450" />
+          <Property Name="idAlumno" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+        </EntityType>
+        <EntityType Name="EspecialAsignaturasAcreditadas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar(max)" />
+          <Property Name="idAlumno" Type="int" />
+          <Property Name="fecha" Type="date" />
+        </EntityType>
+        <EntityType Name="EstatusAcademico">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="IngresoInstitucional">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="periodoIngreso" Type="varchar" MaxLength="250" />
+          <Property Name="modoIngreso" Type="varchar" MaxLength="250" />
+          <Property Name="periodoReinscripcion" Type="varchar" MaxLength="250" />
+          <Property Name="semestre" Type="varchar" MaxLength="100" />
+          <Property Name="idAlumno" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mensajes">
+          <Key>
+            <PropertyRef Name="idMensaje" />
+          </Key>
+          <Property Name="idMensaje" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsuario" Type="int" />
+          <Property Name="idNotificacion" Type="int" />
+          <Property Name="idPersonalAdministrativo" Type="int" />
+          <Property Name="strMensaje" Type="varchar(max)" />
+          <Property Name="fecha" Type="date" />
+        </EntityType>
+        <EntityType Name="Notificaciones">
+          <Key>
+            <PropertyRef Name="idNotificacion" />
+          </Key>
+          <Property Name="idNotificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idSegPersonal" Type="int" />
+          <Property Name="idSolicitud" Type="int" />
+          <Property Name="strNotificacion" Type="varchar(max)" />
+          <Property Name="fecha" Type="date" />
+        </EntityType>
+        <EntityType Name="SegPerfil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strValor" Type="varchar" MaxLength="50" />
+          <Property Name="strDescripcion" Type="varchar" MaxLength="50" />
+          <Property Name="bitEstatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="SegPersonalAdministrativo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strNombre" Type="varchar" MaxLength="150" />
+          <Property Name="strApellidoPaterno" Type="varchar" MaxLength="150" />
+          <Property Name="strApellidoMaterno" Type="varchar" MaxLength="150" />
+          <Property Name="strMail" Type="varchar" MaxLength="250" />
+          <Property Name="strFotoUrl" Type="varchar" MaxLength="900" />
+          <Property Name="strTelefonoInstitucional" Type="varchar" MaxLength="20" />
+          <Property Name="strExtension" Type="varchar" MaxLength="10" />
+          <Property Name="idSegPerfil" Type="int" />
+          <Property Name="idCatCarrera" Type="int" />
+          <Property Name="strNombreUsuario" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="strPassword" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="foto" Type="image" />
+        </EntityType>
+        <EntityType Name="Seguimiento">
+          <Key>
+            <PropertyRef Name="idBit" />
+          </Key>
+          <Property Name="idBit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idSegUsuario" Type="int" />
+          <Property Name="bitEtapaUno" Type="bit" />
+          <Property Name="bitEtapaDos" Type="bit" />
+          <Property Name="bitEtapaTres" Type="bit" />
+          <Property Name="bitEtapaCuatro" Type="bit" />
+          <Property Name="bitEtapaCinco" Type="bit" />
+        </EntityType>
+        <EntityType Name="SegUsuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strNombre" Type="varchar" MaxLength="50" />
+          <Property Name="strAPaterno" Type="varchar" MaxLength="50" />
+          <Property Name="strAMaterno" Type="varchar" MaxLength="50" />
+          <Property Name="strPlanEstudios" Type="varchar" MaxLength="350" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="strUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="strPassword" Type="varchar" MaxLength="50" />
+          <Property Name="strMatricula" Type="varchar" MaxLength="50" />
+          <Property Name="strSemestreActual" Type="varchar" MaxLength="50" />
+          <Property Name="strTelefono" Type="varchar" MaxLength="50" />
+          <Property Name="idSegPerfil" Type="int" />
+          <Property Name="foto" Type="image" />
+          <Property Name="idCarrera" Type="int" />
+        </EntityType>
+        <EntityType Name="Solicitud">
+          <Key>
+            <PropertyRef Name="idSolicitud" />
+          </Key>
+          <Property Name="idSolicitud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCatAsuntoSolicitud" Type="int" />
+          <Property Name="motivos" Type="varchar(max)" />
+          <Property Name="fechaSolicitud" Type="date" />
+          <Property Name="idStatus" Type="int" />
+          <Property Name="folioSolicitud" Type="varchar" MaxLength="450" />
+          <Property Name="idAlumno" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SolicitudDeAlumno">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idSolicitud" Type="int" />
+          <Property Name="idAlumno" Type="int" />
+          <Property Name="fechaAprovacion" Type="date" />
+          <Property Name="comentarios" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK_AlumnoEstatusAcademico_estatusAcademico">
+          <End Role="EstatusAcademico" Type="Self.EstatusAcademico" Multiplicity="1" />
+          <End Role="AlumnoEstatusAcademico" Type="Self.AlumnoEstatusAcademico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstatusAcademico">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AlumnoEstatusAcademico">
+              <PropertyRef Name="idEstatusAcademico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlumnoEstatusAcademico_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="1" />
+          <End Role="AlumnoEstatusAcademico" Type="Self.AlumnoEstatusAcademico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AlumnoEstatusAcademico">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Asignaturas_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="0..1" />
+          <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Asignaturas">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Creditos_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="0..1" />
+          <End Role="Creditos" Type="Self.Creditos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Creditos">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documento_Solicitud_Documento">
+          <End Role="Documento" Type="Self.Documento" Multiplicity="1" />
+          <End Role="Documento_Solicitud" Type="Self.Documento_Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documento">
+              <PropertyRef Name="idDocumento" />
+            </Principal>
+            <Dependent Role="Documento_Solicitud">
+              <PropertyRef Name="idDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documento_Solicitud_Solicitud">
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="1" />
+          <End Role="Documento_Solicitud" Type="Self.Documento_Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud">
+              <PropertyRef Name="idSolicitud" />
+            </Principal>
+            <Dependent Role="Documento_Solicitud">
+              <PropertyRef Name="idSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EspecialAsignaturas_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="1" />
+          <End Role="EspecialAsignaturas" Type="Self.EspecialAsignaturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EspecialAsignaturas">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EspecialAsignaturasAcreditadas_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="0..1" />
+          <End Role="EspecialAsignaturasAcreditadas" Type="Self.EspecialAsignaturasAcreditadas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EspecialAsignaturasAcreditadas">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IngresoInstitucional_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="1" />
+          <End Role="IngresoInstitucional" Type="Self.IngresoInstitucional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="IngresoInstitucional">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mensajes_Notificaciones">
+          <End Role="Notificaciones" Type="Self.Notificaciones" Multiplicity="0..1" />
+          <End Role="Mensajes" Type="Self.Mensajes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Notificaciones">
+              <PropertyRef Name="idNotificacion" />
+            </Principal>
+            <Dependent Role="Mensajes">
+              <PropertyRef Name="idNotificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mensajes_SegPersonalAdministrativo">
+          <End Role="SegPersonalAdministrativo" Type="Self.SegPersonalAdministrativo" Multiplicity="0..1" />
+          <End Role="Mensajes" Type="Self.Mensajes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegPersonalAdministrativo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Mensajes">
+              <PropertyRef Name="idPersonalAdministrativo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mensajes_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="0..1" />
+          <End Role="Mensajes" Type="Self.Mensajes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Mensajes">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notificaciones_SegPersonalAdministrativo">
+          <End Role="SegPersonalAdministrativo" Type="Self.SegPersonalAdministrativo" Multiplicity="0..1" />
+          <End Role="Notificaciones" Type="Self.Notificaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegPersonalAdministrativo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Notificaciones">
+              <PropertyRef Name="idSegPersonal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notificaciones_Solicitud">
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="0..1" />
+          <End Role="Notificaciones" Type="Self.Notificaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud">
+              <PropertyRef Name="idSolicitud" />
+            </Principal>
+            <Dependent Role="Notificaciones">
+              <PropertyRef Name="idSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SegPersonalAdministrativo_CatCarrera">
+          <End Role="CatCarrera" Type="Self.CatCarrera" Multiplicity="0..1" />
+          <End Role="SegPersonalAdministrativo" Type="Self.SegPersonalAdministrativo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatCarrera">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SegPersonalAdministrativo">
+              <PropertyRef Name="idCatCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SegPersonalAdministrativo_SegPerfil">
+          <End Role="SegPerfil" Type="Self.SegPerfil" Multiplicity="0..1" />
+          <End Role="SegPersonalAdministrativo" Type="Self.SegPersonalAdministrativo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegPerfil">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SegPersonalAdministrativo">
+              <PropertyRef Name="idSegPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seguimiento_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="0..1" />
+          <End Role="Seguimiento" Type="Self.Seguimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Seguimiento">
+              <PropertyRef Name="idSegUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SegUsuarios_CatCarrera">
+          <End Role="CatCarrera" Type="Self.CatCarrera" Multiplicity="0..1" />
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatCarrera">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SegUsuarios">
+              <PropertyRef Name="idCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SegUsuarios_SegPerfil">
+          <End Role="SegPerfil" Type="Self.SegPerfil" Multiplicity="0..1" />
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegPerfil">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SegUsuarios">
+              <PropertyRef Name="idSegPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_CatAsuntoSolicitud">
+          <End Role="CatAsuntoSolicitud" Type="Self.CatAsuntoSolicitud" Multiplicity="0..1" />
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatAsuntoSolicitud">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Solicitud">
+              <PropertyRef Name="idCatAsuntoSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_catStatus">
+          <End Role="CatStatus" Type="Self.CatStatus" Multiplicity="0..1" />
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatStatus">
+              <PropertyRef Name="idStatus" />
+            </Principal>
+            <Dependent Role="Solicitud">
+              <PropertyRef Name="idStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="1" />
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Solicitud">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SolicitudDeAlumno_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="0..1" />
+          <End Role="SolicitudDeAlumno" Type="Self.SolicitudDeAlumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SolicitudDeAlumno">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SolicitudDeAlumno_Solicitud">
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="0..1" />
+          <End Role="SolicitudDeAlumno" Type="Self.SolicitudDeAlumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud">
+              <PropertyRef Name="idSolicitud" />
+            </Principal>
+            <Dependent Role="SolicitudDeAlumno">
+              <PropertyRef Name="idSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AnalisisAcademicoModelStoreContainer">
+          <EntitySet Name="AlumnoEstatusAcademico" EntityType="Self.AlumnoEstatusAcademico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Asignaturas" EntityType="Self.Asignaturas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatAsuntoSolicitud" EntityType="Self.CatAsuntoSolicitud" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatCarrera" EntityType="Self.CatCarrera" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="catCarreraAsignaturasCursadas" EntityType="Self.catCarreraAsignaturasCursadas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="catCarreraCreditos" EntityType="Self.catCarreraCreditos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatStatus" EntityType="Self.CatStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Creditos" EntityType="Self.Creditos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Documento" EntityType="Self.Documento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Documento_Solicitud" EntityType="Self.Documento_Solicitud" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EspecialAsignaturas" EntityType="Self.EspecialAsignaturas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EspecialAsignaturasAcreditadas" EntityType="Self.EspecialAsignaturasAcreditadas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstatusAcademico" EntityType="Self.EstatusAcademico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IngresoInstitucional" EntityType="Self.IngresoInstitucional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mensajes" EntityType="Self.Mensajes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notificaciones" EntityType="Self.Notificaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SegPerfil" EntityType="Self.SegPerfil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SegPersonalAdministrativo" EntityType="Self.SegPersonalAdministrativo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seguimiento" EntityType="Self.Seguimiento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SegUsuarios" EntityType="Self.SegUsuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Solicitud" EntityType="Self.Solicitud" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SolicitudDeAlumno" EntityType="Self.SolicitudDeAlumno" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AlumnoEstatusAcademico_estatusAcademico" Association="Self.FK_AlumnoEstatusAcademico_estatusAcademico">
+            <End Role="EstatusAcademico" EntitySet="EstatusAcademico" />
+            <End Role="AlumnoEstatusAcademico" EntitySet="AlumnoEstatusAcademico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlumnoEstatusAcademico_SegUsuarios" Association="Self.FK_AlumnoEstatusAcademico_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="AlumnoEstatusAcademico" EntitySet="AlumnoEstatusAcademico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Asignaturas_SegUsuarios" Association="Self.FK_Asignaturas_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Creditos_SegUsuarios" Association="Self.FK_Creditos_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="Creditos" EntitySet="Creditos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documento_Solicitud_Documento" Association="Self.FK_Documento_Solicitud_Documento">
+            <End Role="Documento" EntitySet="Documento" />
+            <End Role="Documento_Solicitud" EntitySet="Documento_Solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documento_Solicitud_Solicitud" Association="Self.FK_Documento_Solicitud_Solicitud">
+            <End Role="Solicitud" EntitySet="Solicitud" />
+            <End Role="Documento_Solicitud" EntitySet="Documento_Solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EspecialAsignaturas_SegUsuarios" Association="Self.FK_EspecialAsignaturas_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="EspecialAsignaturas" EntitySet="EspecialAsignaturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EspecialAsignaturasAcreditadas_SegUsuarios" Association="Self.FK_EspecialAsignaturasAcreditadas_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="EspecialAsignaturasAcreditadas" EntitySet="EspecialAsignaturasAcreditadas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IngresoInstitucional_SegUsuarios" Association="Self.FK_IngresoInstitucional_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="IngresoInstitucional" EntitySet="IngresoInstitucional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mensajes_Notificaciones" Association="Self.FK_Mensajes_Notificaciones">
+            <End Role="Notificaciones" EntitySet="Notificaciones" />
+            <End Role="Mensajes" EntitySet="Mensajes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mensajes_SegPersonalAdministrativo" Association="Self.FK_Mensajes_SegPersonalAdministrativo">
+            <End Role="SegPersonalAdministrativo" EntitySet="SegPersonalAdministrativo" />
+            <End Role="Mensajes" EntitySet="Mensajes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mensajes_SegUsuarios" Association="Self.FK_Mensajes_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="Mensajes" EntitySet="Mensajes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notificaciones_SegPersonalAdministrativo" Association="Self.FK_Notificaciones_SegPersonalAdministrativo">
+            <End Role="SegPersonalAdministrativo" EntitySet="SegPersonalAdministrativo" />
+            <End Role="Notificaciones" EntitySet="Notificaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notificaciones_Solicitud" Association="Self.FK_Notificaciones_Solicitud">
+            <End Role="Solicitud" EntitySet="Solicitud" />
+            <End Role="Notificaciones" EntitySet="Notificaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SegPersonalAdministrativo_CatCarrera" Association="Self.FK_SegPersonalAdministrativo_CatCarrera">
+            <End Role="CatCarrera" EntitySet="CatCarrera" />
+            <End Role="SegPersonalAdministrativo" EntitySet="SegPersonalAdministrativo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SegPersonalAdministrativo_SegPerfil" Association="Self.FK_SegPersonalAdministrativo_SegPerfil">
+            <End Role="SegPerfil" EntitySet="SegPerfil" />
+            <End Role="SegPersonalAdministrativo" EntitySet="SegPersonalAdministrativo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seguimiento_SegUsuarios" Association="Self.FK_Seguimiento_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="Seguimiento" EntitySet="Seguimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SegUsuarios_CatCarrera" Association="Self.FK_SegUsuarios_CatCarrera">
+            <End Role="CatCarrera" EntitySet="CatCarrera" />
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SegUsuarios_SegPerfil" Association="Self.FK_SegUsuarios_SegPerfil">
+            <End Role="SegPerfil" EntitySet="SegPerfil" />
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_CatAsuntoSolicitud" Association="Self.FK_Solicitud_CatAsuntoSolicitud">
+            <End Role="CatAsuntoSolicitud" EntitySet="CatAsuntoSolicitud" />
+            <End Role="Solicitud" EntitySet="Solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_catStatus" Association="Self.FK_Solicitud_catStatus">
+            <End Role="CatStatus" EntitySet="CatStatus" />
+            <End Role="Solicitud" EntitySet="Solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_SegUsuarios" Association="Self.FK_Solicitud_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="Solicitud" EntitySet="Solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SolicitudDeAlumno_SegUsuarios" Association="Self.FK_SolicitudDeAlumno_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="SolicitudDeAlumno" EntitySet="SolicitudDeAlumno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SolicitudDeAlumno_Solicitud" Association="Self.FK_SolicitudDeAlumno_Solicitud">
+            <End Role="Solicitud" EntitySet="Solicitud" />
+            <End Role="SolicitudDeAlumno" EntitySet="SolicitudDeAlumno" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AnalisisAcademicoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AlumnoEstatusAcademico">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idAlumno" Type="Int32" Nullable="false" />
+          <Property Name="idEstatusAcademico" Type="Int32" Nullable="false" />
+          <Property Name="registroBaja" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tiempoBaja" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="EstatusAcademico" Relationship="Self.FK_AlumnoEstatusAcademico_estatusAcademico" FromRole="AlumnoEstatusAcademico" ToRole="EstatusAcademico" />
+          <NavigationProperty Name="SegUsuarios" Relationship="Self.FK_AlumnoEstatusAcademico_SegUsuarios" FromRole="AlumnoEstatusAcademico" ToRole="SegUsuarios" />
+        </EntityType>
+        <EntityType Name="Asignaturas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="asignaturasTotales" Type="Int32" />
+          <Property Name="asignaturasAprobadas" Type="Int32" />
+          <Property Name="asignaturasCursar" Type="Int32" />
+          <Property Name="asignaturasReprobadas" Type="Int32" />
+          <Property Name="asignaturasRepeticion" Type="Int32" />
+          <Property Name="idAlumno" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="activacion" Type="Boolean" />
+          <NavigationProperty Name="SegUsuarios" Relationship="Self.FK_Asignaturas_SegUsuarios" FromRole="Asignaturas" ToRole="SegUsuarios" />
+        </EntityType>
+        <EntityType Name="CatAsuntoSolicitud">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strValor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="strDescripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Solicitud" Relationship="Self.FK_Solicitud_CatAsuntoSolicitud" FromRole="CatAsuntoSolicitud" ToRole="Solicitud" />
+        </EntityType>
+        <EntityType Name="CatCarrera">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strValor" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="strDescripcion" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="strUrlImg" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SegPersonalAdministrativo" Relationship="Self.FK_SegPersonalAdministrativo_CatCarrera" FromRole="CatCarrera" ToRole="SegPersonalAdministrativo" />
+          <NavigationProperty Name="SegUsuarios" Relationship="Self.FK_SegUsuarios_CatCarrera" FromRole="CatCarrera" ToRole="SegUsuarios" />
+        </EntityType>
+        <EntityType Name="catCarreraAsignaturasCursadas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AsignaturasTotales" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AsignaturasAprobadas" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AsignaturasReprobadas" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AsignaturasPorCursar" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AsignaturasRepeticion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PorcentajeAvance" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="catCarreraCreditos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="creditosTotales" Type="Int32" />
+          <Property Name="creditosReprobados" Type="Int32" />
+          <Property Name="creditosPorCursar" Type="Int32" />
+          <Property Name="PorcentajeAvance" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CatStatus">
+          <Key>
+            <PropertyRef Name="idStatus" />
+          </Key>
+          <Property Name="idStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strObservaciones" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Solicitud" Relationship="Self.FK_Solicitud_catStatus" FromRole="CatStatus" ToRole="Solicitud" />
+        </EntityType>
+        <EntityType Name="Creditos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="creditosTotales" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="creditosAprobados" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="creditosPorCursar" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="idAlumno" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="activacion" Type="Boolean" />
+          <NavigationProperty Name="SegUsuarios" Relationship="Self.FK_Creditos_SegUsuarios" FromRole="Creditos" ToRole="SegUsuarios" />
+        </EntityType>
+        <EntityType Name="Documento">
+          <Key>
+            <PropertyRef Name="idDocumento" />
+          </Key>
+          <Property Name="idDocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strNombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="strDescripcion" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="urlDocumento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Documento_Solicitud" Relationship="Self.FK_Documento_Solicitud_Documento" FromRole="Documento" ToRole="Documento_Solicitud" />
+        </EntityType>
+        <EntityType Name="Documento_Solicitud">
+          <Key>
+            <PropertyRef Name="idSolicitud" />
+            <PropertyRef Name="idDocumento" />
+          </Key>
+          <Property Name="idSolicitud" Type="Int32" Nullable="false" />
+          <Property Name="idDocumento" Type="Int32" Nullable="false" />
+          <Property Name="fechaAsignacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Documento" Relationship="Self.FK_Documento_Solicitud_Documento" FromRole="Documento_Solicitud" ToRole="Documento" />
+          <NavigationProperty Name="Solicitud" Relationship="Self.FK_Documento_Solicitud_Solicitud" FromRole="Documento_Solicitud" ToRole="Solicitud" />
+        </EntityType>
+        <EntityType Name="EspecialAsignaturas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="idAlumno" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="SegUsuarios" Relationship="Self.FK_EspecialAsignaturas_SegUsuarios" FromRole="EspecialAsignaturas" ToRole="SegUsuarios" />
+        </EntityType>
+        <EntityType Name="EspecialAsignaturasAcreditadas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idAlumno" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="SegUsuarios" Relationship="Self.FK_EspecialAsignaturasAcreditadas_SegUsuarios" FromRole="EspecialAsignaturasAcreditadas" ToRole="SegUsuarios" />
+        </EntityType>
+        <EntityType Name="EstatusAcademico">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AlumnoEstatusAcademico" Relationship="Self.FK_AlumnoEstatusAcademico_estatusAcademico" FromRole="EstatusAcademico" ToRole="AlumnoEstatusAcademico" />
+        </EntityType>
+        <EntityType Name="IngresoInstitucional">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="periodoIngreso" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="modoIngreso" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="periodoReinscripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="semestre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idAlumno" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SegUsuarios" Relationship="Self.FK_IngresoInstitucional_SegUsuarios" FromRole="IngresoInstitucional" ToRole="SegUsuarios" />
+        </EntityType>
+        <EntityType Name="Mensajes">
+          <Key>
+            <PropertyRef Name="idMensaje" />
+          </Key>
+          <Property Name="idMensaje" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsuario" Type="Int32" />
+          <Property Name="idNotificacion" Type="Int32" />
+          <Property Name="idPersonalAdministrativo" Type="Int32" />
+          <Property Name="strMensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Notificaciones" Relationship="Self.FK_Mensajes_Notificaciones" FromRole="Mensajes" ToRole="Notificaciones" />
+          <NavigationProperty Name="SegPersonalAdministrativo" Relationship="Self.FK_Mensajes_SegPersonalAdministrativo" FromRole="Mensajes" ToRole="SegPersonalAdministrativo" />
+          <NavigationProperty Name="SegUsuarios" Relationship="Self.FK_Mensajes_SegUsuarios" FromRole="Mensajes" ToRole="SegUsuarios" />
+        </EntityType>
+        <EntityType Name="Notificaciones">
+          <Key>
+            <PropertyRef Name="idNotificacion" />
+          </Key>
+          <Property Name="idNotificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idSegPersonal" Type="Int32" />
+          <Property Name="idSolicitud" Type="Int32" />
+          <Property Name="strNotificacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Mensajes" Relationship="Self.FK_Mensajes_Notificaciones" FromRole="Notificaciones" ToRole="Mensajes" />
+          <NavigationProperty Name="SegPersonalAdministrativo" Relationship="Self.FK_Notificaciones_SegPersonalAdministrativo" FromRole="Notificaciones" ToRole="SegPersonalAdministrativo" />
+          <NavigationProperty Name="Solicitud" Relationship="Self.FK_Notificaciones_Solicitud" FromRole="Notificaciones" ToRole="Solicitud" />
+        </EntityType>
+        <EntityType Name="SegPerfil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strValor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bitEstatus" Type="Boolean" />
+          <NavigationProperty Name="SegPersonalAdministrativo" Relationship="Self.FK_SegPersonalAdministrativo_SegPerfil" FromRole="SegPerfil" ToRole="SegPersonalAdministrativo" />
+          <NavigationProperty Name="SegUsuarios" Relationship="Self.FK_SegUsuarios_SegPerfil" FromRole="SegPerfil" ToRole="SegUsuarios" />
+        </EntityType>
+        <EntityType Name="SegPersonalAdministrativo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strNombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="strApellidoPaterno" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="strApellidoMaterno" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="strMail" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="strFotoUrl" Type="String" MaxLength="900" FixedLength="false" Unicode="false" />
+          <Property Name="strTelefonoInstitucional" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="strExtension" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="idSegPerfil" Type="Int32" />
+          <Property Name="idCatCarrera" Type="Int32" />
+          <Property Name="strNombreUsuario" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="strPassword" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="CatCarrera" Relationship="Self.FK_SegPersonalAdministrativo_CatCarrera" FromRole="SegPersonalAdministrativo" ToRole="CatCarrera" />
+          <NavigationProperty Name="Mensajes" Relationship="Self.FK_Mensajes_SegPersonalAdministrativo" FromRole="SegPersonalAdministrativo" ToRole="Mensajes" />
+          <NavigationProperty Name="Notificaciones" Relationship="Self.FK_Notificaciones_SegPersonalAdministrativo" FromRole="SegPersonalAdministrativo" ToRole="Notificaciones" />
+          <NavigationProperty Name="SegPerfil" Relationship="Self.FK_SegPersonalAdministrativo_SegPerfil" FromRole="SegPersonalAdministrativo" ToRole="SegPerfil" />
+        </EntityType>
+        <EntityType Name="Seguimiento">
+          <Key>
+            <PropertyRef Name="idBit" />
+          </Key>
+          <Property Name="idBit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idSegUsuario" Type="Int32" />
+          <Property Name="bitEtapaUno" Type="Boolean" />
+          <Property Name="bitEtapaDos" Type="Boolean" />
+          <Property Name="bitEtapaTres" Type="Boolean" />
+          <Property Name="bitEtapaCuatro" Type="Boolean" />
+          <Property Name="bitEtapaCinco" Type="Boolean" />
+          <NavigationProperty Name="SegUsuarios" Relationship="Self.FK_Seguimiento_SegUsuarios" FromRole="Seguimiento" ToRole="SegUsuarios" />
+        </EntityType>
+        <EntityType Name="SegUsuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strAPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strAMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strPlanEstudios" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="strUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strMatricula" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strSemestreActual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strTelefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idSegPerfil" Type="Int32" />
+          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="idCarrera" Type="Int32" />
+          <NavigationProperty Name="AlumnoEstatusAcademico" Relationship="Self.FK_AlumnoEstatusAcademico_SegUsuarios" FromRole="SegUsuarios" ToRole="AlumnoEstatusAcademico" />
+          <NavigationProperty Name="Asignaturas" Relationship="Self.FK_Asignaturas_SegUsuarios" FromRole="SegUsuarios" ToRole="Asignaturas" />
+          <NavigationProperty Name="CatCarrera" Relationship="Self.FK_SegUsuarios_CatCarrera" FromRole="SegUsuarios" ToRole="CatCarrera" />
+          <NavigationProperty Name="Creditos" Relationship="Self.FK_Creditos_SegUsuarios" FromRole="SegUsuarios" ToRole="Creditos" />
+          <NavigationProperty Name="EspecialAsignaturas" Relationship="Self.FK_EspecialAsignaturas_SegUsuarios" FromRole="SegUsuarios" ToRole="EspecialAsignaturas" />
+          <NavigationProperty Name="EspecialAsignaturasAcreditadas" Relationship="Self.FK_EspecialAsignaturasAcreditadas_SegUsuarios" FromRole="SegUsuarios" ToRole="EspecialAsignaturasAcreditadas" />
+          <NavigationProperty Name="IngresoInstitucional" Relationship="Self.FK_IngresoInstitucional_SegUsuarios" FromRole="SegUsuarios" ToRole="IngresoInstitucional" />
+          <NavigationProperty Name="Mensajes" Relationship="Self.FK_Mensajes_SegUsuarios" FromRole="SegUsuarios" ToRole="Mensajes" />
+          <NavigationProperty Name="SegPerfil" Relationship="Self.FK_SegUsuarios_SegPerfil" FromRole="SegUsuarios" ToRole="SegPerfil" />
+          <NavigationProperty Name="Seguimiento" Relationship="Self.FK_Seguimiento_SegUsuarios" FromRole="SegUsuarios" ToRole="Seguimiento" />
+          <NavigationProperty Name="Solicitud" Relationship="Self.FK_Solicitud_SegUsuarios" FromRole="SegUsuarios" ToRole="Solicitud" />
+          <NavigationProperty Name="SolicitudDeAlumno" Relationship="Self.FK_SolicitudDeAlumno_SegUsuarios" FromRole="SegUsuarios" ToRole="SolicitudDeAlumno" />
+        </EntityType>
+        <EntityType Name="Solicitud">
+          <Key>
+            <PropertyRef Name="idSolicitud" />
+          </Key>
+          <Property Name="idSolicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCatAsuntoSolicitud" Type="Int32" />
+          <Property Name="motivos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fechaSolicitud" Type="DateTime" Precision="0" />
+          <Property Name="idStatus" Type="Int32" />
+          <Property Name="folioSolicitud" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="idAlumno" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CatAsuntoSolicitud" Relationship="Self.FK_Solicitud_CatAsuntoSolicitud" FromRole="Solicitud" ToRole="CatAsuntoSolicitud" />
+          <NavigationProperty Name="CatStatus" Relationship="Self.FK_Solicitud_catStatus" FromRole="Solicitud" ToRole="CatStatus" />
+          <NavigationProperty Name="Documento_Solicitud" Relationship="Self.FK_Documento_Solicitud_Solicitud" FromRole="Solicitud" ToRole="Documento_Solicitud" />
+          <NavigationProperty Name="Notificaciones" Relationship="Self.FK_Notificaciones_Solicitud" FromRole="Solicitud" ToRole="Notificaciones" />
+          <NavigationProperty Name="SegUsuarios" Relationship="Self.FK_Solicitud_SegUsuarios" FromRole="Solicitud" ToRole="SegUsuarios" />
+          <NavigationProperty Name="SolicitudDeAlumno" Relationship="Self.FK_SolicitudDeAlumno_Solicitud" FromRole="Solicitud" ToRole="SolicitudDeAlumno" />
+        </EntityType>
+        <EntityType Name="SolicitudDeAlumno">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idSolicitud" Type="Int32" />
+          <Property Name="idAlumno" Type="Int32" />
+          <Property Name="fechaAprovacion" Type="DateTime" Precision="0" />
+          <Property Name="comentarios" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SegUsuarios" Relationship="Self.FK_SolicitudDeAlumno_SegUsuarios" FromRole="SolicitudDeAlumno" ToRole="SegUsuarios" />
+          <NavigationProperty Name="Solicitud" Relationship="Self.FK_SolicitudDeAlumno_Solicitud" FromRole="SolicitudDeAlumno" ToRole="Solicitud" />
+        </EntityType>
+        <Association Name="FK_AlumnoEstatusAcademico_estatusAcademico">
+          <End Role="EstatusAcademico" Type="Self.EstatusAcademico" Multiplicity="1" />
+          <End Role="AlumnoEstatusAcademico" Type="Self.AlumnoEstatusAcademico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstatusAcademico">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AlumnoEstatusAcademico">
+              <PropertyRef Name="idEstatusAcademico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlumnoEstatusAcademico_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="1" />
+          <End Role="AlumnoEstatusAcademico" Type="Self.AlumnoEstatusAcademico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AlumnoEstatusAcademico">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Asignaturas_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="0..1" />
+          <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Asignaturas">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_CatAsuntoSolicitud">
+          <End Role="CatAsuntoSolicitud" Type="Self.CatAsuntoSolicitud" Multiplicity="0..1" />
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatAsuntoSolicitud">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Solicitud">
+              <PropertyRef Name="idCatAsuntoSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SegPersonalAdministrativo_CatCarrera">
+          <End Role="CatCarrera" Type="Self.CatCarrera" Multiplicity="0..1" />
+          <End Role="SegPersonalAdministrativo" Type="Self.SegPersonalAdministrativo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatCarrera">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SegPersonalAdministrativo">
+              <PropertyRef Name="idCatCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SegUsuarios_CatCarrera">
+          <End Role="CatCarrera" Type="Self.CatCarrera" Multiplicity="0..1" />
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatCarrera">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SegUsuarios">
+              <PropertyRef Name="idCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_catStatus">
+          <End Role="CatStatus" Type="Self.CatStatus" Multiplicity="0..1" />
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatStatus">
+              <PropertyRef Name="idStatus" />
+            </Principal>
+            <Dependent Role="Solicitud">
+              <PropertyRef Name="idStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Creditos_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="0..1" />
+          <End Role="Creditos" Type="Self.Creditos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Creditos">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documento_Solicitud_Documento">
+          <End Role="Documento" Type="Self.Documento" Multiplicity="1" />
+          <End Role="Documento_Solicitud" Type="Self.Documento_Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documento">
+              <PropertyRef Name="idDocumento" />
+            </Principal>
+            <Dependent Role="Documento_Solicitud">
+              <PropertyRef Name="idDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documento_Solicitud_Solicitud">
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="1" />
+          <End Role="Documento_Solicitud" Type="Self.Documento_Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud">
+              <PropertyRef Name="idSolicitud" />
+            </Principal>
+            <Dependent Role="Documento_Solicitud">
+              <PropertyRef Name="idSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EspecialAsignaturas_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="1" />
+          <End Role="EspecialAsignaturas" Type="Self.EspecialAsignaturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EspecialAsignaturas">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EspecialAsignaturasAcreditadas_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="0..1" />
+          <End Role="EspecialAsignaturasAcreditadas" Type="Self.EspecialAsignaturasAcreditadas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EspecialAsignaturasAcreditadas">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IngresoInstitucional_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="1" />
+          <End Role="IngresoInstitucional" Type="Self.IngresoInstitucional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="IngresoInstitucional">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mensajes_Notificaciones">
+          <End Role="Notificaciones" Type="Self.Notificaciones" Multiplicity="0..1" />
+          <End Role="Mensajes" Type="Self.Mensajes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Notificaciones">
+              <PropertyRef Name="idNotificacion" />
+            </Principal>
+            <Dependent Role="Mensajes">
+              <PropertyRef Name="idNotificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mensajes_SegPersonalAdministrativo">
+          <End Role="SegPersonalAdministrativo" Type="Self.SegPersonalAdministrativo" Multiplicity="0..1" />
+          <End Role="Mensajes" Type="Self.Mensajes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegPersonalAdministrativo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Mensajes">
+              <PropertyRef Name="idPersonalAdministrativo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mensajes_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="0..1" />
+          <End Role="Mensajes" Type="Self.Mensajes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Mensajes">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notificaciones_SegPersonalAdministrativo">
+          <End Role="SegPersonalAdministrativo" Type="Self.SegPersonalAdministrativo" Multiplicity="0..1" />
+          <End Role="Notificaciones" Type="Self.Notificaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegPersonalAdministrativo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Notificaciones">
+              <PropertyRef Name="idSegPersonal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notificaciones_Solicitud">
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="0..1" />
+          <End Role="Notificaciones" Type="Self.Notificaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud">
+              <PropertyRef Name="idSolicitud" />
+            </Principal>
+            <Dependent Role="Notificaciones">
+              <PropertyRef Name="idSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SegPersonalAdministrativo_SegPerfil">
+          <End Role="SegPerfil" Type="Self.SegPerfil" Multiplicity="0..1" />
+          <End Role="SegPersonalAdministrativo" Type="Self.SegPersonalAdministrativo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegPerfil">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SegPersonalAdministrativo">
+              <PropertyRef Name="idSegPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SegUsuarios_SegPerfil">
+          <End Role="SegPerfil" Type="Self.SegPerfil" Multiplicity="0..1" />
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegPerfil">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SegUsuarios">
+              <PropertyRef Name="idSegPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seguimiento_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="0..1" />
+          <End Role="Seguimiento" Type="Self.Seguimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Seguimiento">
+              <PropertyRef Name="idSegUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="1" />
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Solicitud">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SolicitudDeAlumno_SegUsuarios">
+          <End Role="SegUsuarios" Type="Self.SegUsuarios" Multiplicity="0..1" />
+          <End Role="SolicitudDeAlumno" Type="Self.SolicitudDeAlumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SegUsuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SolicitudDeAlumno">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SolicitudDeAlumno_Solicitud">
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="0..1" />
+          <End Role="SolicitudDeAlumno" Type="Self.SolicitudDeAlumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud">
+              <PropertyRef Name="idSolicitud" />
+            </Principal>
+            <Dependent Role="SolicitudDeAlumno">
+              <PropertyRef Name="idSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AnalisisAcademicoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AlumnoEstatusAcademico" EntityType="Self.AlumnoEstatusAcademico" />
+          <EntitySet Name="Asignaturas" EntityType="Self.Asignaturas" />
+          <EntitySet Name="CatAsuntoSolicitud" EntityType="Self.CatAsuntoSolicitud" />
+          <EntitySet Name="CatCarrera" EntityType="Self.CatCarrera" />
+          <EntitySet Name="catCarreraAsignaturasCursadas" EntityType="Self.catCarreraAsignaturasCursadas" />
+          <EntitySet Name="catCarreraCreditos" EntityType="Self.catCarreraCreditos" />
+          <EntitySet Name="CatStatus" EntityType="Self.CatStatus" />
+          <EntitySet Name="Creditos" EntityType="Self.Creditos" />
+          <EntitySet Name="Documento" EntityType="Self.Documento" />
+          <EntitySet Name="Documento_Solicitud" EntityType="Self.Documento_Solicitud" />
+          <EntitySet Name="EspecialAsignaturas" EntityType="Self.EspecialAsignaturas" />
+          <EntitySet Name="EspecialAsignaturasAcreditadas" EntityType="Self.EspecialAsignaturasAcreditadas" />
+          <EntitySet Name="EstatusAcademico" EntityType="Self.EstatusAcademico" />
+          <EntitySet Name="IngresoInstitucional" EntityType="Self.IngresoInstitucional" />
+          <EntitySet Name="Mensajes" EntityType="Self.Mensajes" />
+          <EntitySet Name="Notificaciones" EntityType="Self.Notificaciones" />
+          <EntitySet Name="SegPerfil" EntityType="Self.SegPerfil" />
+          <EntitySet Name="SegPersonalAdministrativo" EntityType="Self.SegPersonalAdministrativo" />
+          <EntitySet Name="Seguimiento" EntityType="Self.Seguimiento" />
+          <EntitySet Name="SegUsuarios" EntityType="Self.SegUsuarios" />
+          <EntitySet Name="Solicitud" EntityType="Self.Solicitud" />
+          <EntitySet Name="SolicitudDeAlumno" EntityType="Self.SolicitudDeAlumno" />
+          <AssociationSet Name="FK_AlumnoEstatusAcademico_estatusAcademico" Association="Self.FK_AlumnoEstatusAcademico_estatusAcademico">
+            <End Role="EstatusAcademico" EntitySet="EstatusAcademico" />
+            <End Role="AlumnoEstatusAcademico" EntitySet="AlumnoEstatusAcademico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlumnoEstatusAcademico_SegUsuarios" Association="Self.FK_AlumnoEstatusAcademico_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="AlumnoEstatusAcademico" EntitySet="AlumnoEstatusAcademico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Asignaturas_SegUsuarios" Association="Self.FK_Asignaturas_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_CatAsuntoSolicitud" Association="Self.FK_Solicitud_CatAsuntoSolicitud">
+            <End Role="CatAsuntoSolicitud" EntitySet="CatAsuntoSolicitud" />
+            <End Role="Solicitud" EntitySet="Solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SegPersonalAdministrativo_CatCarrera" Association="Self.FK_SegPersonalAdministrativo_CatCarrera">
+            <End Role="CatCarrera" EntitySet="CatCarrera" />
+            <End Role="SegPersonalAdministrativo" EntitySet="SegPersonalAdministrativo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SegUsuarios_CatCarrera" Association="Self.FK_SegUsuarios_CatCarrera">
+            <End Role="CatCarrera" EntitySet="CatCarrera" />
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_catStatus" Association="Self.FK_Solicitud_catStatus">
+            <End Role="CatStatus" EntitySet="CatStatus" />
+            <End Role="Solicitud" EntitySet="Solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Creditos_SegUsuarios" Association="Self.FK_Creditos_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="Creditos" EntitySet="Creditos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documento_Solicitud_Documento" Association="Self.FK_Documento_Solicitud_Documento">
+            <End Role="Documento" EntitySet="Documento" />
+            <End Role="Documento_Solicitud" EntitySet="Documento_Solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documento_Solicitud_Solicitud" Association="Self.FK_Documento_Solicitud_Solicitud">
+            <End Role="Solicitud" EntitySet="Solicitud" />
+            <End Role="Documento_Solicitud" EntitySet="Documento_Solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EspecialAsignaturas_SegUsuarios" Association="Self.FK_EspecialAsignaturas_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="EspecialAsignaturas" EntitySet="EspecialAsignaturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EspecialAsignaturasAcreditadas_SegUsuarios" Association="Self.FK_EspecialAsignaturasAcreditadas_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="EspecialAsignaturasAcreditadas" EntitySet="EspecialAsignaturasAcreditadas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IngresoInstitucional_SegUsuarios" Association="Self.FK_IngresoInstitucional_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="IngresoInstitucional" EntitySet="IngresoInstitucional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mensajes_Notificaciones" Association="Self.FK_Mensajes_Notificaciones">
+            <End Role="Notificaciones" EntitySet="Notificaciones" />
+            <End Role="Mensajes" EntitySet="Mensajes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mensajes_SegPersonalAdministrativo" Association="Self.FK_Mensajes_SegPersonalAdministrativo">
+            <End Role="SegPersonalAdministrativo" EntitySet="SegPersonalAdministrativo" />
+            <End Role="Mensajes" EntitySet="Mensajes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mensajes_SegUsuarios" Association="Self.FK_Mensajes_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="Mensajes" EntitySet="Mensajes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notificaciones_SegPersonalAdministrativo" Association="Self.FK_Notificaciones_SegPersonalAdministrativo">
+            <End Role="SegPersonalAdministrativo" EntitySet="SegPersonalAdministrativo" />
+            <End Role="Notificaciones" EntitySet="Notificaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notificaciones_Solicitud" Association="Self.FK_Notificaciones_Solicitud">
+            <End Role="Solicitud" EntitySet="Solicitud" />
+            <End Role="Notificaciones" EntitySet="Notificaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SegPersonalAdministrativo_SegPerfil" Association="Self.FK_SegPersonalAdministrativo_SegPerfil">
+            <End Role="SegPerfil" EntitySet="SegPerfil" />
+            <End Role="SegPersonalAdministrativo" EntitySet="SegPersonalAdministrativo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SegUsuarios_SegPerfil" Association="Self.FK_SegUsuarios_SegPerfil">
+            <End Role="SegPerfil" EntitySet="SegPerfil" />
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seguimiento_SegUsuarios" Association="Self.FK_Seguimiento_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="Seguimiento" EntitySet="Seguimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_SegUsuarios" Association="Self.FK_Solicitud_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="Solicitud" EntitySet="Solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SolicitudDeAlumno_SegUsuarios" Association="Self.FK_SolicitudDeAlumno_SegUsuarios">
+            <End Role="SegUsuarios" EntitySet="SegUsuarios" />
+            <End Role="SolicitudDeAlumno" EntitySet="SolicitudDeAlumno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SolicitudDeAlumno_Solicitud" Association="Self.FK_SolicitudDeAlumno_Solicitud">
+            <End Role="Solicitud" EntitySet="Solicitud" />
+            <End Role="SolicitudDeAlumno" EntitySet="SolicitudDeAlumno" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AnalisisAcademicoModelStoreContainer" CdmEntityContainer="AnalisisAcademicoEntities">
+          <EntitySetMapping Name="AlumnoEstatusAcademico">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.AlumnoEstatusAcademico">
+              <MappingFragment StoreEntitySet="AlumnoEstatusAcademico">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idAlumno" ColumnName="idAlumno" />
+                <ScalarProperty Name="idEstatusAcademico" ColumnName="idEstatusAcademico" />
+                <ScalarProperty Name="registroBaja" ColumnName="registroBaja" />
+                <ScalarProperty Name="tiempoBaja" ColumnName="tiempoBaja" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Asignaturas">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.Asignaturas">
+              <MappingFragment StoreEntitySet="Asignaturas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="asignaturasTotales" ColumnName="asignaturasTotales" />
+                <ScalarProperty Name="asignaturasAprobadas" ColumnName="asignaturasAprobadas" />
+                <ScalarProperty Name="asignaturasCursar" ColumnName="asignaturasCursar" />
+                <ScalarProperty Name="asignaturasReprobadas" ColumnName="asignaturasReprobadas" />
+                <ScalarProperty Name="asignaturasRepeticion" ColumnName="asignaturasRepeticion" />
+                <ScalarProperty Name="idAlumno" ColumnName="idAlumno" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="activacion" ColumnName="activacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatAsuntoSolicitud">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.CatAsuntoSolicitud">
+              <MappingFragment StoreEntitySet="CatAsuntoSolicitud">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="strValor" ColumnName="strValor" />
+                <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatCarrera">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.CatCarrera">
+              <MappingFragment StoreEntitySet="CatCarrera">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="strValor" ColumnName="strValor" />
+                <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+                <ScalarProperty Name="strUrlImg" ColumnName="strUrlImg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catCarreraAsignaturasCursadas">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.catCarreraAsignaturasCursadas">
+              <MappingFragment StoreEntitySet="catCarreraAsignaturasCursadas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="AsignaturasTotales" ColumnName="AsignaturasTotales" />
+                <ScalarProperty Name="AsignaturasAprobadas" ColumnName="AsignaturasAprobadas" />
+                <ScalarProperty Name="AsignaturasReprobadas" ColumnName="AsignaturasReprobadas" />
+                <ScalarProperty Name="AsignaturasPorCursar" ColumnName="AsignaturasPorCursar" />
+                <ScalarProperty Name="AsignaturasRepeticion" ColumnName="AsignaturasRepeticion" />
+                <ScalarProperty Name="PorcentajeAvance" ColumnName="PorcentajeAvance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catCarreraCreditos">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.catCarreraCreditos">
+              <MappingFragment StoreEntitySet="catCarreraCreditos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="creditosTotales" ColumnName="creditosTotales" />
+                <ScalarProperty Name="creditosReprobados" ColumnName="creditosReprobados" />
+                <ScalarProperty Name="creditosPorCursar" ColumnName="creditosPorCursar" />
+                <ScalarProperty Name="PorcentajeAvance" ColumnName="PorcentajeAvance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatStatus">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.CatStatus">
+              <MappingFragment StoreEntitySet="CatStatus">
+                <ScalarProperty Name="idStatus" ColumnName="idStatus" />
+                <ScalarProperty Name="strNombre" ColumnName="strNombre" />
+                <ScalarProperty Name="strObservaciones" ColumnName="strObservaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Creditos">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.Creditos">
+              <MappingFragment StoreEntitySet="Creditos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="creditosTotales" ColumnName="creditosTotales" />
+                <ScalarProperty Name="creditosAprobados" ColumnName="creditosAprobados" />
+                <ScalarProperty Name="creditosPorCursar" ColumnName="creditosPorCursar" />
+                <ScalarProperty Name="idAlumno" ColumnName="idAlumno" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="activacion" ColumnName="activacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documento">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.Documento">
+              <MappingFragment StoreEntitySet="Documento">
+                <ScalarProperty Name="idDocumento" ColumnName="idDocumento" />
+                <ScalarProperty Name="strNombre" ColumnName="strNombre" />
+                <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+                <ScalarProperty Name="urlDocumento" ColumnName="urlDocumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documento_Solicitud">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.Documento_Solicitud">
+              <MappingFragment StoreEntitySet="Documento_Solicitud">
+                <ScalarProperty Name="idSolicitud" ColumnName="idSolicitud" />
+                <ScalarProperty Name="idDocumento" ColumnName="idDocumento" />
+                <ScalarProperty Name="fechaAsignacion" ColumnName="fechaAsignacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EspecialAsignaturas">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.EspecialAsignaturas">
+              <MappingFragment StoreEntitySet="EspecialAsignaturas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idAlumno" ColumnName="idAlumno" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EspecialAsignaturasAcreditadas">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.EspecialAsignaturasAcreditadas">
+              <MappingFragment StoreEntitySet="EspecialAsignaturasAcreditadas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idAlumno" ColumnName="idAlumno" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstatusAcademico">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.EstatusAcademico">
+              <MappingFragment StoreEntitySet="EstatusAcademico">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IngresoInstitucional">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.IngresoInstitucional">
+              <MappingFragment StoreEntitySet="IngresoInstitucional">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="periodoIngreso" ColumnName="periodoIngreso" />
+                <ScalarProperty Name="modoIngreso" ColumnName="modoIngreso" />
+                <ScalarProperty Name="periodoReinscripcion" ColumnName="periodoReinscripcion" />
+                <ScalarProperty Name="semestre" ColumnName="semestre" />
+                <ScalarProperty Name="idAlumno" ColumnName="idAlumno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mensajes">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.Mensajes">
+              <MappingFragment StoreEntitySet="Mensajes">
+                <ScalarProperty Name="idMensaje" ColumnName="idMensaje" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idNotificacion" ColumnName="idNotificacion" />
+                <ScalarProperty Name="idPersonalAdministrativo" ColumnName="idPersonalAdministrativo" />
+                <ScalarProperty Name="strMensaje" ColumnName="strMensaje" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notificaciones">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.Notificaciones">
+              <MappingFragment StoreEntitySet="Notificaciones">
+                <ScalarProperty Name="idNotificacion" ColumnName="idNotificacion" />
+                <ScalarProperty Name="idSegPersonal" ColumnName="idSegPersonal" />
+                <ScalarProperty Name="idSolicitud" ColumnName="idSolicitud" />
+                <ScalarProperty Name="strNotificacion" ColumnName="strNotificacion" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SegPerfil">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.SegPerfil">
+              <MappingFragment StoreEntitySet="SegPerfil">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="strValor" ColumnName="strValor" />
+                <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+                <ScalarProperty Name="bitEstatus" ColumnName="bitEstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SegPersonalAdministrativo">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.SegPersonalAdministrativo">
+              <MappingFragment StoreEntitySet="SegPersonalAdministrativo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="strNombre" ColumnName="strNombre" />
+                <ScalarProperty Name="strApellidoPaterno" ColumnName="strApellidoPaterno" />
+                <ScalarProperty Name="strApellidoMaterno" ColumnName="strApellidoMaterno" />
+                <ScalarProperty Name="strMail" ColumnName="strMail" />
+                <ScalarProperty Name="strFotoUrl" ColumnName="strFotoUrl" />
+                <ScalarProperty Name="strTelefonoInstitucional" ColumnName="strTelefonoInstitucional" />
+                <ScalarProperty Name="strExtension" ColumnName="strExtension" />
+                <ScalarProperty Name="idSegPerfil" ColumnName="idSegPerfil" />
+                <ScalarProperty Name="idCatCarrera" ColumnName="idCatCarrera" />
+                <ScalarProperty Name="strNombreUsuario" ColumnName="strNombreUsuario" />
+                <ScalarProperty Name="strPassword" ColumnName="strPassword" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seguimiento">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.Seguimiento">
+              <MappingFragment StoreEntitySet="Seguimiento">
+                <ScalarProperty Name="idBit" ColumnName="idBit" />
+                <ScalarProperty Name="idSegUsuario" ColumnName="idSegUsuario" />
+                <ScalarProperty Name="bitEtapaUno" ColumnName="bitEtapaUno" />
+                <ScalarProperty Name="bitEtapaDos" ColumnName="bitEtapaDos" />
+                <ScalarProperty Name="bitEtapaTres" ColumnName="bitEtapaTres" />
+                <ScalarProperty Name="bitEtapaCuatro" ColumnName="bitEtapaCuatro" />
+                <ScalarProperty Name="bitEtapaCinco" ColumnName="bitEtapaCinco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SegUsuarios">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.SegUsuarios">
+              <MappingFragment StoreEntitySet="SegUsuarios">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="strNombre" ColumnName="strNombre" />
+                <ScalarProperty Name="strAPaterno" ColumnName="strAPaterno" />
+                <ScalarProperty Name="strAMaterno" ColumnName="strAMaterno" />
+                <ScalarProperty Name="strPlanEstudios" ColumnName="strPlanEstudios" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="strUsuario" ColumnName="strUsuario" />
+                <ScalarProperty Name="strPassword" ColumnName="strPassword" />
+                <ScalarProperty Name="strMatricula" ColumnName="strMatricula" />
+                <ScalarProperty Name="strSemestreActual" ColumnName="strSemestreActual" />
+                <ScalarProperty Name="strTelefono" ColumnName="strTelefono" />
+                <ScalarProperty Name="idSegPerfil" ColumnName="idSegPerfil" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="idCarrera" ColumnName="idCarrera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Solicitud">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.Solicitud">
+              <MappingFragment StoreEntitySet="Solicitud">
+                <ScalarProperty Name="idSolicitud" ColumnName="idSolicitud" />
+                <ScalarProperty Name="idCatAsuntoSolicitud" ColumnName="idCatAsuntoSolicitud" />
+                <ScalarProperty Name="motivos" ColumnName="motivos" />
+                <ScalarProperty Name="fechaSolicitud" ColumnName="fechaSolicitud" />
+                <ScalarProperty Name="idStatus" ColumnName="idStatus" />
+                <ScalarProperty Name="folioSolicitud" ColumnName="folioSolicitud" />
+                <ScalarProperty Name="idAlumno" ColumnName="idAlumno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SolicitudDeAlumno">
+            <EntityTypeMapping TypeName="AnalisisAcademicoModel.SolicitudDeAlumno">
+              <MappingFragment StoreEntitySet="SolicitudDeAlumno">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idSolicitud" ColumnName="idSolicitud" />
+                <ScalarProperty Name="idAlumno" ColumnName="idAlumno" />
+                <ScalarProperty Name="fechaAprovacion" ColumnName="fechaAprovacion" />
+                <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

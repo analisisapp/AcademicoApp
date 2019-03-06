@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1849197da6de4345b5bf45993659ff33" Name="Diagram1" ZoomLevel="50">
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.AlumnoEstatusAcademico" Width="1.5" PointX="11.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.Asignaturas" Width="1.5" PointX="8.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.CatAsuntoSolicitud" Width="1.5" PointX="9" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.CatCarrera" Width="1.5" PointX="0.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.catCarreraAsignaturasCursadas" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.catCarreraCreditos" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.CatStatus" Width="1.5" PointX="9" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.Creditos" Width="1.5" PointX="8.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.Documento" Width="1.5" PointX="11.25" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.Documento_Solicitud" Width="1.5" PointX="13.5" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.EspecialAsignaturas" Width="1.5" PointX="8.25" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.EspecialAsignaturasAcreditadas" Width="1.5" PointX="8.25" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.EstatusAcademico" Width="1.5" PointX="9" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.IngresoInstitucional" Width="1.5" PointX="8.25" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.Mensajes" Width="1.5" PointX="11.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.Notificaciones" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.SegPerfil" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.SegPersonalAdministrativo" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.Seguimiento" Width="1.5" PointX="8.25" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.SegUsuarios" Width="1.5" PointX="6" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.Solicitud" Width="1.5" PointX="11.25" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnalisisAcademicoModel.SolicitudDeAlumno" Width="1.5" PointX="13.5" PointY="18.75" IsExpanded="true" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_AlumnoEstatusAcademico_estatusAcademico" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_AlumnoEstatusAcademico_SegUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_Asignaturas_SegUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_Solicitud_CatAsuntoSolicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_SegPersonalAdministrativo_CatCarrera" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_SegUsuarios_CatCarrera" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_Solicitud_catStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_Creditos_SegUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_Documento_Solicitud_Documento" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_Documento_Solicitud_Solicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_EspecialAsignaturas_SegUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_EspecialAsignaturasAcreditadas_SegUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_IngresoInstitucional_SegUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_Mensajes_Notificaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_Mensajes_SegPersonalAdministrativo" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_Mensajes_SegUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_Notificaciones_SegPersonalAdministrativo" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_Notificaciones_Solicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_SegPersonalAdministrativo_SegPerfil" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_SegUsuarios_SegPerfil" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_Seguimiento_SegUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_Solicitud_SegUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_SolicitudDeAlumno_SegUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AnalisisAcademicoModel.FK_SolicitudDeAlumno_Solicitud" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
