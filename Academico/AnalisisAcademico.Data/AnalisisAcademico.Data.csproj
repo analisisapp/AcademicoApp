@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Infraestrucutra\ICarreraRepository.cs" />
+    <Compile Include="Infraestructure\ICarreraRepository.cs" />
     <Compile Include="Model\AlumnoEstatusAcademico.cs">
       <DependentUpon>DbGeneral.tt</DependentUpon>
     </Compile>

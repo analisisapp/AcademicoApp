@@ -32,8 +32,10 @@ namespace AnalisisAcademico.Data.Repository
             CatCarrera catCarrera = null;
             try
             {
-                SegUsuarios usuarios= contexto.SegUsuarios.Where(p => p.id == idUsuario).FirstOrDefault<SegUsuarios>();
-                catCarrera= contexto.CatCarrera.Where(p => p.id == usuarios.idCarrera).FirstOrDefault<CatCarrera>();
+                SegUsuarios usuarios= contexto.SegUsuarios.
+                    Where(p => p.id == idUsuario).FirstOrDefault<SegUsuarios>();
+                catCarrera= contexto.CatCarrera.
+                  Where(p => p.id == usuarios.idCarrera).FirstOrDefault<CatCarrera>();
             }
             catch (Exception ex)
             {
