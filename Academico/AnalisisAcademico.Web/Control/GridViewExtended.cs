@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.UI.WebControls;
-using Data.Model;
+using AnalisisAcademico.Data.Model;
+using AnalisisAcademico.Data;
 using System.Collections;
 namespace AnalisisAcademico.Web.Control
 {

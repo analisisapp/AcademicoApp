@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using AnalisisAcademico.Web.Control;
 using System.Web.UI.WebControls;
-using Data.Model;
+using AnalisisAcademico.Data.Model;
 namespace AnalisisAcademico.Web.Control
 {
     public static class DropDownListExtended

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Data.Model;
+using AnalisisAcademico.Data;
+using AnalisisAcademico.Data.Model;
 
 namespace AnalisisAcademico.Web.Control
 {
@@ -24,7 +25,7 @@ namespace AnalisisAcademico.Web.Control
             return htmlGeneric.ToString();
         }
 
-        public string ConsultarImagenUsuarioPerfil(SegUsuario segUsuario)
+        public string ConsultarImagenUsuarioPerfil(SegUsuarios segUsuario)
         {
             StringBuilder htmlGeneric = new StringBuilder();
             htmlGeneric.Append("<img src='"+segUsuario.foto+"' class='img-responsive img-rounded img-thumbnail' alt='Responsive image'>");

@@ -1,4 +1,5 @@
-﻿using Data.Model;
+﻿using AnalisisAcademico.Data;
+using AnalisisAcademico.Data.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,57 +61,57 @@ namespace AnalisisAcademico.Web.Control
         }
 
 
-        public string Graficar(EstadisticaSolicitudAlumno estadistica)
-        {
-            StringBuilder scriptChart = new StringBuilder();
-            scriptChart.Append("<script>");
-            scriptChart.Append("var ctx = document.getElementById('myChart').getContext('2d');");
-            scriptChart.Append("var myChart = new Chart(ctx, {");
-            scriptChart.Append("type: 'bar',");
-            scriptChart.Append("data:");
-            scriptChart.Append("{");
-            scriptChart.Append("labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],");
-            scriptChart.Append("datasets: [{");
-            scriptChart.Append("label: 'Numero de Solicitudes Generadas',");
-            //aqui esta el proceso de la graficacion de  los datos
-            scriptChart.Append("data:["+ estadistica.TotalSolicitudAlumno+ ","+estadistica.TotalSolicitudCarrera+"],");
-            ////
-            scriptChart.Append("backgroundColor: [");
-            scriptChart.Append("'rgba(255, 99, 132, 0.2)',");
-            scriptChart.Append("'rgba(54, 162, 235, 0.8)',");
-            scriptChart.Append("'rgba(255, 206, 86, 0.7)',");
-            scriptChart.Append("'rgba(75, 192, 192, 0.7)',");
-            scriptChart.Append("'rgba(153, 102, 255, 0.2)',");
-            scriptChart.Append("'rgba(4, 180, 134, 0.8)'");
-            scriptChart.Append(" ],");
-            scriptChart.Append(" borderColor: [");
-            scriptChart.Append("'rgba(255,99,132,1)',");
-            scriptChart.Append("'rgba(54, 162, 235, 1)',");
-            scriptChart.Append("'rgba(255, 206, 86, 1)',");
-            scriptChart.Append("'rgba(75, 192, 192, 1)',");
-            scriptChart.Append("'rgba(153, 102, 255, 1)',");
-            scriptChart.Append("'rgba(255, 159, 64, 1)'");
-            scriptChart.Append("  ],");
-            scriptChart.Append("borderWidth: 1");
-            scriptChart.Append("  }]");
-            scriptChart.Append("},");
-            scriptChart.Append(" options:");
-            scriptChart.Append("{");
-            scriptChart.Append(" scales:");
-            scriptChart.Append(" {");
-            scriptChart.Append("yAxes: [{");
-            scriptChart.Append("ticks:");
-            scriptChart.Append(" {");
-            scriptChart.Append("beginAtZero: true");
-            scriptChart.Append("}");
-            scriptChart.Append("}]");
-            scriptChart.Append("}");
-            scriptChart.Append(" }");
-            scriptChart.Append(" });");
-            scriptChart.Append(" </script>");
-            //data: [12, 19, 7, 4, 1, 22]
-         return scriptChart.ToString();         
-        }
+        //public string Graficar(EstadisticaSolicitudAlumno estadistica)
+        //{
+        //    StringBuilder scriptChart = new StringBuilder();
+        //    scriptChart.Append("<script>");
+        //    scriptChart.Append("var ctx = document.getElementById('myChart').getContext('2d');");
+        //    scriptChart.Append("var myChart = new Chart(ctx, {");
+        //    scriptChart.Append("type: 'bar',");
+        //    scriptChart.Append("data:");
+        //    scriptChart.Append("{");
+        //    scriptChart.Append("labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],");
+        //    scriptChart.Append("datasets: [{");
+        //    scriptChart.Append("label: 'Numero de Solicitudes Generadas',");
+        //    //aqui esta el proceso de la graficacion de  los datos
+        //    scriptChart.Append("data:["+ estadistica.TotalSolicitudAlumno+ ","+estadistica.TotalSolicitudCarrera+"],");
+        //    ////
+        //    scriptChart.Append("backgroundColor: [");
+        //    scriptChart.Append("'rgba(255, 99, 132, 0.2)',");
+        //    scriptChart.Append("'rgba(54, 162, 235, 0.8)',");
+        //    scriptChart.Append("'rgba(255, 206, 86, 0.7)',");
+        //    scriptChart.Append("'rgba(75, 192, 192, 0.7)',");
+        //    scriptChart.Append("'rgba(153, 102, 255, 0.2)',");
+        //    scriptChart.Append("'rgba(4, 180, 134, 0.8)'");
+        //    scriptChart.Append(" ],");
+        //    scriptChart.Append(" borderColor: [");
+        //    scriptChart.Append("'rgba(255,99,132,1)',");
+        //    scriptChart.Append("'rgba(54, 162, 235, 1)',");
+        //    scriptChart.Append("'rgba(255, 206, 86, 1)',");
+        //    scriptChart.Append("'rgba(75, 192, 192, 1)',");
+        //    scriptChart.Append("'rgba(153, 102, 255, 1)',");
+        //    scriptChart.Append("'rgba(255, 159, 64, 1)'");
+        //    scriptChart.Append("  ],");
+        //    scriptChart.Append("borderWidth: 1");
+        //    scriptChart.Append("  }]");
+        //    scriptChart.Append("},");
+        //    scriptChart.Append(" options:");
+        //    scriptChart.Append("{");
+        //    scriptChart.Append(" scales:");
+        //    scriptChart.Append(" {");
+        //    scriptChart.Append("yAxes: [{");
+        //    scriptChart.Append("ticks:");
+        //    scriptChart.Append(" {");
+        //    scriptChart.Append("beginAtZero: true");
+        //    scriptChart.Append("}");
+        //    scriptChart.Append("}]");
+        //    scriptChart.Append("}");
+        //    scriptChart.Append(" }");
+        //    scriptChart.Append(" });");
+        //    scriptChart.Append(" </script>");
+        //    //data: [12, 19, 7, 4, 1, 22]
+        // return scriptChart.ToString();         
+        //}
         
       } 
   
