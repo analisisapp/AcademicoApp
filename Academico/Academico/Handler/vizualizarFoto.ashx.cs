@@ -15,6 +15,7 @@ namespace Academico.Handler
     {
         [Dependency]
         public ISegUsuarioRepository segUsuarioRepository { get; set; } //inyectamos la dependencia del objeto
+        public ISegPersonalAdministrativoRepository segPersonalAdministrativoRepository { get; set; } //inyectamos la segunda dependencia
 
         public void ProcessRequest(HttpContext context)
         {
@@ -64,26 +65,25 @@ namespace Academico.Handler
             }
         }
         #endregion
-        //#region Metodo para consultar la imagen de un usuario administrativo
-        //public Stream MostrarImagenAdministrativo(int _idUsuario)
-        //{
-        //    try
-        //    {
 
-        //        IRepositorioSegPersonalAdministrativo isegUsuario = new RepositorySegPersonalAdministrativo();
-        //        SegPersonalAdministrativo segUsuario = isegUsuario.consultarUsuarioByIdAdministrativo(_idUsuario);
-        //        System.Data.Linq.Binary fotoData = null;
-        //        fotoData = (Binary)segUsuario.foto;
-        //        byte[] arreglo = fotoData.ToArray();
-        //        return new MemoryStream(arreglo);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-        //    }
-        //}
+        #region Metodo para consultar la imagen de un usuario administrativo
+        public Stream MostrarImagenAdministrativo(int _idUsuario)
+        {
+            try
+            {
+                SegPersonalAdministrativo segUsuario = segPersonalAdministrativoRepository.consultarUsuarioByIdAdministrativo(_idUsuario);
+                System.Data.Linq.Binary fotoData = null;
+                fotoData = (Binary)segUsuario.foto;
+                byte[] arreglo = fotoData.ToArray();
+                return new MemoryStream(arreglo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
-        //#endregion
+        #endregion
 
         public bool IsReusable
         {

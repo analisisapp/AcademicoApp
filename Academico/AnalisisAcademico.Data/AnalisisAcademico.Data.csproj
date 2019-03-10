@@ -135,6 +135,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CarreraRepository.cs" />
+    <Compile Include="Repository\RepositorySegPersonalAdministrativo.cs" />
     <Compile Include="Repository\RepositorySegUsuario.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <Compile Include="Infraestructure\ISegPersonalAdministrativoRepository.cs" />
     <None Include="Model\DbGeneral.edmx.diagram">
       <DependentUpon>DbGeneral.edmx</DependentUpon>
     </None>

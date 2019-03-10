@@ -281,6 +281,7 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Imagenes\FooterOficial.png" />
     <Content Include="Imagenes\user.png" />
     <Content Include="production\calendar.html" />
     <Content Include="production\chartjs.html" />
