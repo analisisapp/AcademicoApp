@@ -1,4 +1,5 @@
 using System.Web;
+using AnalisisAcademico.Data.Infraestructure;
 using AnalisisAcademico.Data.Infraestrucutra;
 using AnalisisAcademico.Data.Repository;
 using Microsoft.Practices.Unity;
@@ -33,6 +34,8 @@ namespace Academico.App_Start
 		/// <param name="container">Instance of the container to populate.</param>
 		private static void RegisterDependencies( IUnityContainer container )
 		{
+            // inyectamos las dependencias
+            container.RegisterType<ISegUsuarioRepository, RepositorySegUsuario>();
             container.RegisterType<ICarreraRepository, CarreraRepository>();
 		}
 	}

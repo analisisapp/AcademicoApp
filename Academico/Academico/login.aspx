@@ -14,6 +14,7 @@
     <link href="Content/font-awesome.min.css" rel="stylesheet" />
     <link href="Content/nprogress.css" rel="stylesheet" />
     <link href="Content/custom.min.css" rel="stylesheet" />
+    <link href="Content/fuentes.css" rel="stylesheet" />
 </head>
 <body class="login">
 
@@ -24,7 +25,7 @@
             <div class="animate form login_form">
                 <section class="login_content">
                     <form id="form1" runat="server">
-                        <h1>Login Académico</h1>
+                        <h1 class="font-title">Login Académico</h1>
                         <div>
                             <asp:TextBox ID="txtMailUsuario" runat="server" CssClass="form-control" placeholder="Usuario o email " required="required" TextMode="Email"></asp:TextBox>
                             
@@ -34,14 +35,14 @@
                             
                         </div>
                         <div>
-                            <asp:Button ID="BtnLogin" runat="server" Text="Log in" CssClass="btn btn-default submit" />
+                            <asp:Button ID="BtnLogin" runat="server" Text="Log in" CssClass="btn btn-success submit" OnClick="BtnLogin_Click" />
                             <a class="reset_pass" href="Cuentas/inicio_recuperacion_password.aspx">Olvidaste tu Password?</a>
                         </div>
 
                         <div class="clearfix"></div>
 
                         <div class="separator">
-                            <p class="change_link">
+                            <p class="change_link font-title">
                                 Nuevo en el Sitio?
                   <a href="registroinstitucional.aspx" class="to_register">Crea una Cuenta </a>
                             </p>
@@ -50,7 +51,7 @@
                             <br />
 
                             <div>
-                                <h1><i class="fa fa-graduation-cap"></i>Análisis Académico!</h1>
+                                <h1 class="font-title"><i class="fa fa-graduation-cap font-title"></i>Análisis Académico!</h1>
                                 <p>©2016 All Rights Reserved. Htsoft-Mexico</p>
                             </div>
                         </div>

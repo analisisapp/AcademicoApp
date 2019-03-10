@@ -13,6 +13,24 @@ namespace Academico.Alumno {
     public partial class perfil {
         
         /// <summary>
+        /// Control etAlumno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label etAlumno;
+        
+        /// <summary>
+        /// Control ImgPerfilUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImgPerfilUsuario;
+        
+        /// <summary>
         /// Control txtNombre.
         /// </summary>
         /// <remarks>
