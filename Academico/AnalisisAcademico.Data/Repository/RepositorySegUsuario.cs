@@ -25,8 +25,10 @@ namespace AnalisisAcademico.Data.Repository
             SegUsuarios segusuario = null;
             try
             {
-                Expression<Func<SegUsuarios, bool>> predicado = p => p.email == nombre && p.strPassword == password;
-                segusuario = contexto.SegUsuarios.Where(predicado.Compile()).FirstOrDefault<SegUsuarios>();
+                Expression<Func<SegUsuarios, bool>> predicado = p => p.strNombre == nombre &&
+                p.strPassword == password;
+                segusuario = contexto.SegUsuarios.
+                    Where(predicado.Compile()).FirstOrDefault<SegUsuarios>();
             }
             catch (Exception ex)
             {
@@ -48,6 +50,22 @@ namespace AnalisisAcademico.Data.Repository
             }
             return segusuario;
         }
+
+        public List<SegUsuarios> GetusuariosByNombre(string nombre)
+        {
+            List<SegUsuarios> usuarios = null;
+            try
+            {
+                usuarios =contexto.SegUsuarios.Where(p => p.strNombre == nombre && p.CatCarrera.strDescripcion== nombre).ToList<SegUsuarios>();
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+               
+            }
+            return usuarios;
+        }
+
 
         public SegUsuarios GetUsuarioById(int id)
         {

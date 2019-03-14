@@ -37,7 +37,8 @@ namespace Academico
             this.segUsuarios = segUsuarioRepository.GetUsuarioLogin(nombre, password); //vamos a validar al usuario
             
             //se valida que el usuario contenga el perfil del alumno
-            if (this.segUsuarios != null && this.segUsuarios.SegPerfil.strValor.Equals(Recursos.PERFIL_ALUMNO))
+            if (this.segUsuarios != null && 
+                this.segUsuarios.SegPerfil.strValor.Equals(Recursos.PERFIL_ALUMNO))
             {
                 this.sesionManager = new SessionManager();
                 this.sesionManager.IdUsuario = this.segUsuarios.id;
