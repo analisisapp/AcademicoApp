@@ -17,7 +17,7 @@ namespace AnalisisAcademico.Web.Control
             List<T> lista = null;
             using (var contexto = new AnalisisAcademicoEntities())
             {
-                //lista = contexto.GetTable<T>().ToList<T>();
+                
                 lista = contexto.Set<T>().ToList<T>();
                 
             }

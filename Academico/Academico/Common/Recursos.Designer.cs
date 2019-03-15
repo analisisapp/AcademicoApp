@@ -178,7 +178,7 @@ namespace Academico.Common {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ~/imagenes/Usuarios/.
+        ///   Busca una cadena traducida similar a ~/Imagenes/Usuarios/.
         /// </summary>
         internal static string PATH_IMAGENES {
             get {
