@@ -240,6 +240,7 @@
     <Content Include="Content\shCoreDefault.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\starrr.css" />
+    <Content Include="Content\sweetalert.css" />
     <Content Include="Content\switchery.css" />
     <Content Include="Cuentas\inicio_recuperacion_password.aspx" />
     <Content Include="Default.aspx" />
@@ -407,6 +408,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery.autocomplete.js" />
     <Content Include="Scripts\jquery.autocomplete.min.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
     <Content Include="Scripts\jquery.hotkeys.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.min.js" />
@@ -417,6 +419,8 @@
     <Content Include="Scripts\jquery.vmap.min.js" />
     <Content Include="Scripts\jquery.vmap.sampledata.js" />
     <Content Include="Scripts\jquery.vmap.world.js" />
+    <Content Include="Scripts\mensajeError.js" />
+    <Content Include="Scripts\mensajeInformativo.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
@@ -433,6 +437,7 @@
     <Content Include="Scripts\shCore.js" />
     <Content Include="Scripts\skycons.js" />
     <Content Include="Scripts\starrr.js" />
+    <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="Scripts\switchery.js" />
     <Content Include="Scripts\switchery.min.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
@@ -4112,6 +4117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Imagenes\Usuarios\" />
     <Folder Include="vendors\bootstrap\dist\js\" />
   </ItemGroup>
   <ItemGroup>
@@ -4940,6 +4946,7 @@
     <Content Include="vendors\validator\.bower.json" />
     <Content Include="vendors\validator\README.md" />
     <Content Include="vendors\validator\validator.jquery.json" />
+    <Content Include="Scripts\jquery.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

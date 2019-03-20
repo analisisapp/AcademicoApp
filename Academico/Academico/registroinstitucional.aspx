@@ -23,6 +23,8 @@
     <link href="Content/starrr.css" rel="stylesheet" />
     <link href="Content/daterangepicker.css" rel="stylesheet" />
     <link href="Content/custom.min.css" rel="stylesheet" />
+    <link href="Content/sweetalert.css" rel="stylesheet" />
+
     <script src="Scripts/jquery.min.js"></script>
 
     <script src="Scripts/bootstrap.min.js"></script>
@@ -43,6 +45,9 @@
     <script src="Scripts/jquery.autocomplete.min.js"></script>
     <script src="Scripts/starrr.js"></script>
     <script src="Scripts/custom.min.js"></script>
+    <script src="Scripts/sweetalert.min.js"></script>
+    <script src="Scripts/sweetalert.min.js"></script>
+    <script src="Scripts/mensajeInformativo.js"></script>
 </head>
 <body class="nav-md">
     <form id="form1" runat="server">
@@ -180,7 +185,7 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Subir Foto:</label>
                                                 <div class="col-md-9 col-sm-9 col-xs-12"> 
                                                     <!-- accept=".pdf"--><!--accept="application/pdf,image/jpg"  -->
-                                                    <ajaxToolkit:AsyncFileUpload ID="file_Foto" runat="server" CssClass="file-name" required="required" accept="image/jpg" /> 
+                                                    <ajaxToolkit:AsyncFileUpload ID="file_Foto" runat="server" CssClass="file-name" required="required" accept="image/jpg" OnUploadedComplete="file_Foto_UploadedComplete" /> 
                                                 </div>
                                             </div>
                                         </div>
@@ -188,8 +193,9 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-5 col-sm-5 col-xs-12 col-md-offset-7">
-                                            <button class="btn btn-primary" type="reset">Regresar</button>
-                                            <button type="submit" class="btn btn-success">Submit</button>
+                                            <asp:Button ID="BtnRegresar" runat="server" Text="Regresar" CssClass="btn btn-primary" />
+                                            <asp:Button ID="BtnGuardar" CssClass="btn btn-success" runat="server" Text="Guardar" OnClick="BtnGuardar_Click" />
+                                            
                                         </div>
                                     </div>
 
@@ -240,10 +246,27 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Creditos Reprobados:</label>
                                         <div class="col-md-9 col-sm-9 col-xs-12">
-                                            <asp:TextBox ID="txtCreditosReprobados" runat="server" placeholder="Plan de Estudios" CssClass="form-control" required="required" TextMode="Number"></asp:TextBox>
+                                            <asp:TextBox ID="txtCreditosReprobados" runat="server" placeholder="Creditos Reprobados" CssClass="form-control" required="required" TextMode="Number"></asp:TextBox>
                                             <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Creditos por Cursar:</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <asp:TextBox ID="txtCreditosPorCursar" runat="server" placeholder="Creditos por Cursar" CssClass="form-control" required="required" TextMode="Number"></asp:TextBox>
+                                            <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Porcentaje de Avance:</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <asp:TextBox ID="txtPorcentajeAvance" runat="server" placeholder="Porcentaje de Avance" CssClass="form-control" required="required" TextMode="Number"></asp:TextBox>
+                                            <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

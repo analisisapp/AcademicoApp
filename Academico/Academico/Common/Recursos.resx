@@ -157,7 +157,7 @@
     <value>~/Documentos/</value>
   </data>
   <data name="PATH_IMAGENES" xml:space="preserve">
-    <value>~/imagenes/Usuarios/</value>
+    <value>~/Imagenes/Usuarios/</value>
   </data>
   <data name="PERFIL_ALUMNO" xml:space="preserve">
     <value>Alumno</value>
